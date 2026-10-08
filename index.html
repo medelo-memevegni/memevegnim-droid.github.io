@@ -7,6 +7,7 @@
     <title>Medelo Memevegni | Statistique & Data</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -50,7 +51,7 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 18px;
         }
 
         nav a {
@@ -149,7 +150,7 @@
         }
 
         .section-description {
-            max-width: 750px;
+            max-width: 800px;
             color: #627d98;
             margin-bottom: 40px;
             font-size: 17px;
@@ -178,19 +179,129 @@
             color: #627d98;
         }
 
-        .skills {
+        /* COMPÉTENCES */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+        }
+
+        .skill-category h3 {
+            color: #123c69;
+            margin-bottom: 18px;
+            font-size: 21px;
+        }
+
+        .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 9px;
         }
 
         .skill {
-            background: white;
-            border: 1px solid #d9e2ec;
-            padding: 10px 16px;
+            background: #eef5fc;
+            border: 1px solid #d9e6f2;
+            padding: 9px 13px;
             border-radius: 20px;
             color: #243b53;
+            font-size: 14px;
         }
+
+        /* DOMAINES D'APPLICATION */
+
+        .domains-table-wrapper {
+            overflow-x: auto;
+            background: white;
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+        }
+
+        .domains-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        .domains-table th {
+            background: #123c69;
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .domains-table td {
+            padding: 20px 18px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #52606d;
+        }
+
+        .domains-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .domains-table td:first-child {
+            font-weight: bold;
+            color: #123c69;
+            width: 30%;
+        }
+
+        .domains-table tr:hover {
+            background: #f8fbff;
+        }
+
+        /* PROCESSUS STATISTIQUE */
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .process-card {
+            background: white;
+            padding: 24px 18px;
+            text-align: center;
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+        }
+
+        .process-number {
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #1769aa;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .process-card h3 {
+            color: #123c69;
+            font-size: 17px;
+            margin-bottom: 9px;
+        }
+
+        .process-card p {
+            color: #627d98;
+            font-size: 14px;
+        }
+
+        /* TIMELINE */
 
         .timeline {
             border-left: 3px solid #1769aa;
@@ -220,9 +331,10 @@
 
         footer p {
             opacity: 0.8;
+            margin: 5px;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
 
             nav {
                 flex-direction: column;
@@ -235,18 +347,22 @@
             }
 
             .hero h1 {
-                font-size: 43px;
+                font-size: 45px;
             }
 
             .cards {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
 
             .hero h1 {
-                font-size: 35px;
+                font-size: 37px;
             }
 
             .hero p {
@@ -256,7 +372,24 @@
             section {
                 padding: 65px 20px;
             }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
         }
+
     </style>
 </head>
 
@@ -275,6 +408,7 @@
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#formation">Formation</a></li>
             <li><a href="#competences">Compétences</a></li>
+            <li><a href="#domaines">Domaines</a></li>
             <li><a href="#experiences">Expériences</a></li>
             <li><a href="#projets">Projets</a></li>
             <li><a href="#articles">Articles</a></li>
@@ -295,7 +429,7 @@
         <div class="hero-content">
 
             <div class="hero-label">
-                STATISTICIEN • DATA ANALYST • FUTUR DATA SCIENTIST
+                STATISTICIEN • DATA ANALYST • DATA SCIENCE
             </div>
 
             <h1>
@@ -360,7 +494,6 @@
 
             </div>
 
-
             <div class="card">
 
                 <h3>
@@ -368,13 +501,12 @@
                 </h3>
 
                 <p>
-                    Exploration, nettoyage, analyse et visualisation
-                    de données afin d'en extraire des informations
-                    utiles.
+                    Exploration, préparation, traitement, analyse
+                    et visualisation des données afin d'en extraire
+                    des informations utiles.
                 </p>
 
             </div>
-
 
             <div class="card">
 
@@ -428,7 +560,6 @@
 
             </div>
 
-
             <div class="timeline-item">
 
                 <span>
@@ -445,7 +576,6 @@
                 </p>
 
             </div>
-
 
             <div class="timeline-item">
 
@@ -479,286 +609,266 @@
         </h2>
 
         <p class="section-description">
-            Outils, méthodes et domaines de compétence que j'utilise
-            ou que je développe.
+            Une approche complète de la chaîne de valeur statistique,
+            depuis la conception et la collecte des données jusqu'à
+            leur analyse, leur interprétation et leur utilisation
+            pour l'aide à la décision.
         </p>
 
-        <div class="skills">
 
-            <span class="skill">R</span>
+        <div class="skills-grid">
 
-            <span class="skill">Python</span>
+            <!-- 1 -->
 
-            <span class="skill">Stata</span>
+            <div class="skill-category">
 
-            <span class="skill">Excel</span>
+                <h3>
+                    Conception & collecte des données
+                </h3>
 
-            <span class="skill">Power BI</span>
+                <div class="skill-list">
 
-            <span class="skill">Statistique</span>
+                    <span class="skill">
+                        Conception d'enquêtes
+                    </span>
 
-            <span class="skill">Économétrie</span>
+                    <span class="skill">
+                        Collecte de données
+                    </span>
 
-            <span class="skill">Régression</span>
+                    <span class="skill">
+                        Élaboration de questionnaires
+                    </span>
 
-            <span class="skill">Séries temporelles</span>
+                    <span class="skill">
+                        Organisation des données
+                    </span>
 
-            <span class="skill">Data Analysis</span>
+                    <span class="skill">
+                        Structuration des bases
+                    </span>
 
-            <span class="skill">Data Science</span>
+                </div>
 
-            <span class="skill">Data Visualisation</span>
+            </div>
+
+
+            <!-- 2 -->
+
+            <div class="skill-category">
+
+                <h3>
+                    Traitement & apurement
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">
+                        Traitement des données
+                    </span>
+
+                    <span class="skill">
+                        Apurement des données
+                    </span>
+
+                    <span class="skill">
+                        Nettoyage des bases
+                    </span>
+
+                    <span class="skill">
+                        Contrôle de cohérence
+                    </span>
+
+                    <span class="skill">
+                        Gestion des valeurs manquantes
+                    </span>
+
+                    <span class="skill">
+                        Préparation des données
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- 3 -->
+
+            <div class="skill-category">
+
+                <h3>
+                    Analyse quantitative & modélisation
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">
+                        Analyse de données
+                    </span>
+
+                    <span class="skill">
+                        Statistique appliquée
+                    </span>
+
+                    <span class="skill">
+                        Analyse quantitative
+                    </span>
+
+                    <span class="skill">
+                        Économétrie
+                    </span>
+
+                    <span class="skill">
+                        Régression
+                    </span>
+
+                    <span class="skill">
+                        Tests statistiques
+                    </span>
+
+                    <span class="skill">
+                        Séries temporelles
+                    </span>
+
+                    <span class="skill">
+                        Modélisation statistique
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- 4 -->
+
+            <div class="skill-category">
+
+                <h3>
+                    Interprétation & prévision
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">
+                        Interprétation des résultats
+                    </span>
+
+                    <span class="skill">
+                        Analyse des tendances
+                    </span>
+
+                    <span class="skill">
+                        Prévision statistique
+                    </span>
+
+                    <span class="skill">
+                        Analyse prospective
+                    </span>
+
+                    <span class="skill">
+                        Aide à l'interprétation décisionnelle
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- 5 -->
+
+            <div class="skill-category">
+
+                <h3>
+                    Communication & aide à la décision
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">
+                        Rédaction de rapports professionnels
+                    </span>
+
+                    <span class="skill">
+                        Reporting
+                    </span>
+
+                    <span class="skill">
+                        Présentation des résultats
+                    </span>
+
+                    <span class="skill">
+                        Visualisation des données
+                    </span>
+
+                    <span class="skill">
+                        Communication statistique
+                    </span>
+
+                    <span class="skill">
+                        Aide à la décision
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- 6 -->
+
+            <div class="skill-category">
+
+                <h3>
+                    Outils & programmation
+                </h3>
+
+                <div class="skill-list">
+
+                    <span class="skill">
+                        R
+                    </span>
+
+                    <span class="skill">
+                        Python
+                    </span>
+
+                    <span class="skill">
+                        Stata
+                    </span>
+
+                    <span class="skill">
+                        Excel
+                    </span>
+
+                    <span class="skill">
+                        Power BI
+                    </span>
+
+                    <span class="skill">
+                        Git & GitHub
+                    </span>
+
+                    <span class="skill">
+                        Google Colab
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- EXPÉRIENCES -->
+    <!-- PROCESSUS STATISTIQUE -->
 
-    <section id="experiences">
+    <section id="processus">
 
         <h2 class="section-title">
-            Expériences professionnelles
+            Ma démarche statistique
         </h2>
 
         <p class="section-description">
-            Mes expériences, stages et travaux professionnels
-            liés à la statistique, aux données et à la planification.
-        </p>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>
-                    Expérience en santé publique
-                </h3>
-
-                <p>
-                    Participation à des travaux liés à la planification,
-                    aux statistiques sanitaires, aux données et au suivi
-                    des performances.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Expérience en économie
-                </h3>
-
-                <p>
-                    Travaux d'analyse et de modélisation de données
-                    économiques et développement de projets statistiques.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Projets personnels
-                </h3>
-
-                <p>
-                    Développement de projets personnels permettant
-                    d'améliorer mes compétences en analyse de données
-                    et programmation.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROJETS -->
-
-    <section id="projets">
-
-        <h2 class="section-title">
-            Projets
-        </h2>
-
-        <p class="section-description">
-            Une sélection de travaux statistiques, économiques
-            et Data que je souhaite présenter progressivement.
-        </p>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>
-                    Déterminants de la malnutrition
-                </h3>
-
-                <p>
-                    Étude statistique des déterminants de la malnutrition
-                    chez les enfants de moins de cinq ans au Bénin.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Analyse de séries temporelles
-                </h3>
-
-                <p>
-                    Analyse et modélisation de séries économiques
-                    à l'aide de méthodes statistiques et de modèles
-                    de séries temporelles.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Analyse économique
-                </h3>
-
-                <p>
-                    Études quantitatives visant à analyser les relations
-                    entre différents indicateurs économiques.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Data Science
-                </h3>
-
-                <p>
-                    Développement progressif de projets utilisant
-                    Python, R et différentes techniques d'analyse
-                    des données.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ARTICLES -->
-
-    <section id="articles">
-
-        <h2 class="section-title">
-            Articles scientifiques
-        </h2>
-
-        <p class="section-description">
-            Cet espace sera consacré à mes publications scientifiques,
-            articles en préparation, working papers et travaux de recherche.
-        </p>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>
-                    Articles scientifiques
-                </h3>
-
-                <p>
-                    Les articles publiés seront présentés ici avec
-                    leurs références, résumés et liens vers les revues.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Working papers
-                </h3>
-
-                <p>
-                    Travaux de recherche en cours de développement
-                    ou en attente de publication.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Recherche
-                </h3>
-
-                <p>
-                    Travaux portant notamment sur la statistique,
-                    l'économie, les données sociales et les problématiques
-                    de développement.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section id="contact">
-
-        <h2 class="section-title">
-            Contact
-        </h2>
-
-        <p class="section-description">
-            Pour une collaboration, un projet d'analyse de données,
-            une discussion scientifique ou une opportunité professionnelle,
-            vous pourrez me contacter ici.
-        </p>
-
-        <div class="card">
-
-            <h3>
-                Me contacter
-            </h3>
-
-            <p>
-                Les coordonnées professionnelles et les réseaux sociaux
-                seront ajoutés prochainement.
-            </p>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<footer>
-
-    <p>
-        © 2026 Medelo Memevegni — Statistique & Data
-    </p>
-
-    <p>
-        Site personnel professionnel et scientifique
-    </p>
-
-</footer>
-
-</body>
-</html>
+            Une démarche structurée permettant de transformer les
+            données brutes en informations utiles à la compréhension
+            des phénomènes et à la prise de décision.
