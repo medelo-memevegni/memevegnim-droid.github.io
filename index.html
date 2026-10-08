@@ -42,7 +42,7 @@
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 21px;
             font-weight: bold;
             color: #123c69;
         }
@@ -50,7 +50,7 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 22px;
+            gap: 20px;
         }
 
         nav a {
@@ -60,11 +60,11 @@
         }
 
         nav a:hover {
-            color: #123c69;
+            color: #1769aa;
         }
 
         .hero {
-            min-height: 85vh;
+            min-height: 88vh;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, #eaf3ff, #ffffff);
@@ -76,11 +76,20 @@
             padding: 80px 25px;
         }
 
+        .hero-label {
+            color: #1769aa;
+            font-weight: bold;
+            font-size: 17px;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
         .hero h1 {
-            font-size: 55px;
-            max-width: 800px;
+            font-size: 58px;
+            line-height: 1.1;
+            max-width: 850px;
             color: #102a43;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .hero h1 span {
@@ -88,10 +97,10 @@
         }
 
         .hero p {
-            max-width: 700px;
+            max-width: 760px;
             font-size: 19px;
             color: #52606d;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
 
         .buttons {
@@ -113,28 +122,37 @@
             color: white;
         }
 
+        .btn-primary:hover {
+            background: #123c69;
+        }
+
         .btn-secondary {
             border: 1px solid #1769aa;
             color: #1769aa;
             background: white;
         }
 
+        .btn-secondary:hover {
+            background: #eaf3ff;
+        }
+
         section {
             max-width: 1200px;
             margin: auto;
-            padding: 80px 25px;
+            padding: 85px 25px;
         }
 
         .section-title {
-            font-size: 34px;
+            font-size: 35px;
             margin-bottom: 15px;
             color: #102a43;
         }
 
         .section-description {
-            max-width: 700px;
+            max-width: 750px;
             color: #627d98;
             margin-bottom: 40px;
+            font-size: 17px;
         }
 
         .cards {
@@ -148,7 +166,7 @@
             padding: 28px;
             border-radius: 14px;
             border: 1px solid #e5e7eb;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
         }
 
         .card h3 {
@@ -169,22 +187,43 @@
         .skill {
             background: white;
             border: 1px solid #d9e2ec;
-            padding: 10px 15px;
+            padding: 10px 16px;
             border-radius: 20px;
+            color: #243b53;
+        }
+
+        .timeline {
+            border-left: 3px solid #1769aa;
+            padding-left: 25px;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+        }
+
+        .timeline-item h3 {
+            color: #123c69;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item span {
+            color: #1769aa;
+            font-weight: bold;
         }
 
         footer {
             background: #102a43;
             color: white;
             text-align: center;
-            padding: 35px 20px;
+            padding: 40px 20px;
         }
 
         footer p {
             opacity: 0.8;
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
+
             nav {
                 flex-direction: column;
                 gap: 15px;
@@ -196,11 +235,26 @@
             }
 
             .hero h1 {
-                font-size: 38px;
+                font-size: 43px;
             }
 
             .cards {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 65px 20px;
             }
         }
     </style>
@@ -209,27 +263,502 @@
 <body>
 
 <header>
+
     <nav>
-        <div class="logo">MEDELO MEMEVEGNI</div>
+
+        <div class="logo">
+            MEDELO MEMEVEGNI
+        </div>
 
         <ul>
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#formation">Formation</a></li>
             <li><a href="#competences">Compétences</a></li>
+            <li><a href="#experiences">Expériences</a></li>
             <li><a href="#projets">Projets</a></li>
             <li><a href="#articles">Articles</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+
     </nav>
+
 </header>
+
 
 <main>
 
+    <!-- ACCUEIL -->
+
     <section class="hero" id="accueil">
+
         <div class="hero-content">
 
+            <div class="hero-label">
+                STATISTICIEN • DATA ANALYST • FUTUR DATA SCIENTIST
+            </div>
+
             <h1>
-                Statistique, données et
-                <span>analyse décisionnelle.</span>
-            </h
+                Bonjour, je suis
+                <span>Medelo Memevegni.</span>
+            </h1>
+
+            <p>
+                Statisticien de formation, passionné par l'analyse
+                des données, l'économétrie, la modélisation et la
+                Data Science. Je m'intéresse à l'utilisation des
+                données pour comprendre les phénomènes et contribuer
+                à une meilleure prise de décision.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projets" class="btn btn-primary">
+                    Découvrir mes projets
+                </a>
+
+                <a href="#apropos" class="btn btn-secondary">
+                    Découvrir mon parcours
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- À PROPOS -->
+
+    <section id="apropos">
+
+        <h2 class="section-title">
+            À propos de moi
+        </h2>
+
+        <p class="section-description">
+            Mon parcours est orienté vers la statistique appliquée,
+            l'analyse des données et la recherche quantitative.
+            Je souhaite développer progressivement une expertise
+            dans les domaines de la statistique, de l'économétrie
+            et de la Data Science.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Statistique appliquée
+                </h3>
+
+                <p>
+                    Analyse statistique, modélisation, régression,
+                    tests statistiques, séries temporelles et
+                    interprétation des résultats.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Analyse de données
+                </h3>
+
+                <p>
+                    Exploration, nettoyage, analyse et visualisation
+                    de données afin d'en extraire des informations
+                    utiles.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Recherche quantitative
+                </h3>
+
+                <p>
+                    Intérêt pour les études économiques, sociales,
+                    sanitaires et sectorielles utilisant des méthodes
+                    statistiques.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FORMATION -->
+
+    <section id="formation">
+
+        <h2 class="section-title">
+            Formation académique
+        </h2>
+
+        <p class="section-description">
+            Mon parcours académique et les formations qui contribuent
+            au développement de mes compétences.
+        </p>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <span>
+                    Licence
+                </span>
+
+                <h3>
+                    Licence en Statistique appliquée
+                </h3>
+
+                <p>
+                    Formation axée sur la statistique, l'analyse des
+                    données, la modélisation, l'économétrie et les
+                    outils informatiques.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span>
+                    Formation continue
+                </span>
+
+                <h3>
+                    Développement des compétences Data
+                </h3>
+
+                <p>
+                    Perfectionnement progressif en programmation,
+                    analyse de données, visualisation et Data Science.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span>
+                    Objectif
+                </span>
+
+                <h3>
+                    Poursuite en Master
+                </h3>
+
+                <p>
+                    Poursuivre une formation avancée dans un domaine
+                    lié à la statistique, aux données, à l'économétrie
+                    ou à la Data Science.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPÉTENCES -->
+
+    <section id="competences">
+
+        <h2 class="section-title">
+            Compétences
+        </h2>
+
+        <p class="section-description">
+            Outils, méthodes et domaines de compétence que j'utilise
+            ou que je développe.
+        </p>
+
+        <div class="skills">
+
+            <span class="skill">R</span>
+
+            <span class="skill">Python</span>
+
+            <span class="skill">Stata</span>
+
+            <span class="skill">Excel</span>
+
+            <span class="skill">Power BI</span>
+
+            <span class="skill">Statistique</span>
+
+            <span class="skill">Économétrie</span>
+
+            <span class="skill">Régression</span>
+
+            <span class="skill">Séries temporelles</span>
+
+            <span class="skill">Data Analysis</span>
+
+            <span class="skill">Data Science</span>
+
+            <span class="skill">Data Visualisation</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPÉRIENCES -->
+
+    <section id="experiences">
+
+        <h2 class="section-title">
+            Expériences professionnelles
+        </h2>
+
+        <p class="section-description">
+            Mes expériences, stages et travaux professionnels
+            liés à la statistique, aux données et à la planification.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Expérience en santé publique
+                </h3>
+
+                <p>
+                    Participation à des travaux liés à la planification,
+                    aux statistiques sanitaires, aux données et au suivi
+                    des performances.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Expérience en économie
+                </h3>
+
+                <p>
+                    Travaux d'analyse et de modélisation de données
+                    économiques et développement de projets statistiques.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Projets personnels
+                </h3>
+
+                <p>
+                    Développement de projets personnels permettant
+                    d'améliorer mes compétences en analyse de données
+                    et programmation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJETS -->
+
+    <section id="projets">
+
+        <h2 class="section-title">
+            Projets
+        </h2>
+
+        <p class="section-description">
+            Une sélection de travaux statistiques, économiques
+            et Data que je souhaite présenter progressivement.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Déterminants de la malnutrition
+                </h3>
+
+                <p>
+                    Étude statistique des déterminants de la malnutrition
+                    chez les enfants de moins de cinq ans au Bénin.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Analyse de séries temporelles
+                </h3>
+
+                <p>
+                    Analyse et modélisation de séries économiques
+                    à l'aide de méthodes statistiques et de modèles
+                    de séries temporelles.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Analyse économique
+                </h3>
+
+                <p>
+                    Études quantitatives visant à analyser les relations
+                    entre différents indicateurs économiques.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Data Science
+                </h3>
+
+                <p>
+                    Développement progressif de projets utilisant
+                    Python, R et différentes techniques d'analyse
+                    des données.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ARTICLES -->
+
+    <section id="articles">
+
+        <h2 class="section-title">
+            Articles scientifiques
+        </h2>
+
+        <p class="section-description">
+            Cet espace sera consacré à mes publications scientifiques,
+            articles en préparation, working papers et travaux de recherche.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Articles scientifiques
+                </h3>
+
+                <p>
+                    Les articles publiés seront présentés ici avec
+                    leurs références, résumés et liens vers les revues.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Working papers
+                </h3>
+
+                <p>
+                    Travaux de recherche en cours de développement
+                    ou en attente de publication.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Recherche
+                </h3>
+
+                <p>
+                    Travaux portant notamment sur la statistique,
+                    l'économie, les données sociales et les problématiques
+                    de développement.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <h2 class="section-title">
+            Contact
+        </h2>
+
+        <p class="section-description">
+            Pour une collaboration, un projet d'analyse de données,
+            une discussion scientifique ou une opportunité professionnelle,
+            vous pourrez me contacter ici.
+        </p>
+
+        <div class="card">
+
+            <h3>
+                Me contacter
+            </h3>
+
+            <p>
+                Les coordonnées professionnelles et les réseaux sociaux
+                seront ajoutés prochainement.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Medelo Memevegni — Statistique & Data
+    </p>
+
+    <p>
+        Site personnel professionnel et scientifique
+    </p>
+
+</footer>
+
+</body>
+</html>
