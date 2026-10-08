@@ -3,475 +3,642 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#102b46">
-  <meta name="description" content="Portfolio professionnel de Medelo Memevegni, statisticien spécialisé en statistique appliquée, analyse de données, économétrie et prévision.">
+  <meta name="theme-color" content="#123653">
+  <meta name="description" content="Site professionnel de Medelo Memevegni, diplômé en statistique appliquée. Présentation de son parcours, de ses compétences et de ses projets en analyse de données.">
   <meta name="author" content="Medelo Memevegni">
-  <title>Medelo Memevegni | Statistique appliquée & Data Analysis</title>
+  <title>Medelo Memevegni | Statistique appliquée</title>
 
   <style>
     :root {
-      --bg: #f5f7fb;
+      --bg: #f5f7fa;
       --surface: #ffffff;
-      --surface-2: #edf3f8;
-      --text: #18283b;
-      --muted: #64748b;
-      --primary: #123b60;
-      --accent: #16a085;
-      --border: #dfe7ef;
-      --shadow: 0 12px 36px rgba(22, 42, 65, .07);
-      --header: rgba(255,255,255,.94);
+      --surface-alt: #edf2f7;
+      --text: #1d2b3a;
+      --muted: #657487;
+      --primary: #123653;
+      --accent: #168c78;
+      --border: #dce4ec;
+      --shadow: 0 8px 28px rgba(20, 45, 70, 0.06);
+      --header: rgba(255,255,255,0.96);
     }
 
     [data-theme="dark"] {
-      --bg: #0c1420;
-      --surface: #142132;
-      --surface-2: #1c2c40;
-      --text: #edf4fc;
-      --muted: #a9b8ca;
-      --primary: #9cc8f0;
-      --accent: #56d6b4;
-      --border: #2a3b50;
-      --shadow: 0 12px 36px rgba(0,0,0,.18);
-      --header: rgba(12,20,32,.94);
+      --bg: #101925;
+      --surface: #182536;
+      --surface-alt: #223247;
+      --text: #edf3f9;
+      --muted: #adbac9;
+      --primary: #9fc7e7;
+      --accent: #5bd0b1;
+      --border: #304156;
+      --shadow: 0 8px 28px rgba(0,0,0,0.16);
+      --header: rgba(16,25,37,0.96);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
-      transition: background .25s, color .25s;
     }
 
-    a { color: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 4px;
+    a {
+      color: inherit;
     }
 
-    .container { width: min(1120px, 91%); margin-inline: auto; }
-    section { padding: 76px 0; }
+    button {
+      font: inherit;
+    }
 
-    .site-header {
+    section {
+      padding: 70px 0;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .header {
       position: sticky;
       top: 0;
       z-index: 100;
       background: var(--header);
-      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
     }
 
     .nav {
-      min-height: 72px;
+      min-height: 70px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 18px;
+      justify-content: space-between;
+      gap: 15px;
     }
 
     .brand {
+      font-size: 1rem;
+      font-weight: 800;
       text-decoration: none;
-      font-weight: 850;
-      letter-spacing: -.5px;
-      font-size: 1.03rem;
       white-space: nowrap;
     }
 
-    .brand span { color: var(--accent); }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .brand span {
+      color: var(--accent);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 17px;
+      gap: 15px;
     }
 
     .nav-links a {
-      font-size: .84rem;
-      font-weight: 650;
-      text-decoration: none;
       color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-controls {
+      display: flex;
+      gap: 8px;
+    }
 
     .icon-button {
+      width: 40px;
+      height: 40px;
       border: 1px solid var(--border);
-      background: var(--surface);
+      border-radius: 9px;
       color: var(--text);
-      border-radius: 10px;
-      min-width: 42px;
-      min-height: 42px;
-      padding: 8px 11px;
+      background: var(--surface);
       cursor: pointer;
-      font-size: 1.05rem;
     }
 
-    .menu-toggle { display: none; }
+    .menu-toggle {
+      display: none;
+    }
 
     .hero {
-      padding: 90px 0 78px;
-      overflow: hidden;
+      padding: 85px 0 75px;
       background:
-        radial-gradient(ellipse at 85% 10%, rgba(22,160,133,.13), transparent 34%),
-        radial-gradient(ellipse at 10% 80%, rgba(35,100,155,.09), transparent 35%);
+        radial-gradient(circle at 85% 15%, rgba(22,140,120,0.12), transparent 32%),
+        var(--bg);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.45fr .75fr;
-      gap: 56px;
+      grid-template-columns: 1.4fr 0.8fr;
       align-items: center;
+      gap: 45px;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .eyebrow,
+    .section-label {
       color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
-      letter-spacing: 1.7px;
-      font-size: .75rem;
-      font-weight: 850;
     }
 
-    h1, h2, h3, p { margin-top: 0; }
     h1 {
-      font-size: clamp(2.5rem, 5.7vw, 4.6rem);
-      letter-spacing: -2.8px;
-      line-height: 1.08;
-      margin: 18px 0;
+      font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin: 16px 0;
     }
 
-    h1 span { color: var(--accent); }
+    h1 span {
+      color: var(--accent);
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      line-height: 1.25;
+      letter-spacing: -0.7px;
+      margin: 8px 0 14px;
+    }
+
+    h3 {
+      line-height: 1.4;
+    }
 
     .hero-description {
-      max-width: 680px;
+      max-width: 670px;
       color: var(--muted);
-      font-size: 1.08rem;
-      margin-bottom: 25px;
+      font-size: 1.05rem;
     }
 
-    .hero-buttons, .social-links {
+    .buttons,
+    .social-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
+      gap: 10px;
+      margin-top: 22px;
     }
 
     .btn {
       display: inline-flex;
-      justify-content: center;
       align-items: center;
-      gap: 9px;
-      padding: 12px 19px;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 17px;
       border: 1px solid var(--border);
-      border-radius: 11px;
+      border-radius: 9px;
       text-decoration: none;
-      font-size: .92rem;
-      font-weight: 750;
-      transition: transform .2s, opacity .2s, background .2s;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      color: #fff;
-      background: #123b60;
-      border-color: #123b60;
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
     }
-    .btn-primary:hover { background: #19517d; }
-    .btn-secondary { background: var(--surface); color: var(--text); }
+
+    .btn-primary {
+      background: #123653;
+      color: #ffffff;
+      border-color: #123653;
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+    }
 
     .hero-note {
-      margin-top: 20px;
-      font-size: .86rem;
       color: var(--muted);
+      font-size: 0.87rem;
+      margin-top: 20px;
+    }
+
+    .profile-card,
+    .card,
+    .contact-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
     }
 
     .profile-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: var(--shadow);
+      padding: 26px;
     }
 
     .monogram {
-      width: 78px;
-      height: 78px;
-      border-radius: 22px;
       display: grid;
       place-items: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      background: linear-gradient(140deg, #123653, #168c78);
       color: white;
-      background: linear-gradient(145deg, #123b60, #16a085);
       font-size: 1.5rem;
-      font-weight: 900;
-      letter-spacing: -1px;
+      font-weight: 800;
       margin-bottom: 18px;
     }
 
-    .profile-card h2 { font-size: 1.25rem; margin-bottom: 5px; }
-    .profile-card > p { color: var(--muted); font-size: .9rem; }
+    .profile-card h2 {
+      font-size: 1.25rem;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
 
     .profile-line {
-      border-top: 1px solid var(--border);
       padding: 12px 0;
-      font-size: .88rem;
+      border-top: 1px solid var(--border);
     }
 
-    .profile-line strong { display: block; font-size: .95rem; }
-    .profile-line span { color: var(--muted); }
+    .profile-line strong,
+    .profile-line span {
+      display: block;
+    }
 
-    .metrics {
+    .profile-line span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .grid-2,
+    .grid-3 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 25px;
+      gap: 18px;
     }
 
-    .metric {
-      padding: 16px 10px;
-      background: var(--surface-2);
-      border-radius: 13px;
-      text-align: center;
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .metric strong { display: block; font-size: 1.3rem; }
-    .metric span { font-size: .73rem; color: var(--muted); }
-
-    .section-heading { margin-bottom: 32px; max-width: 760px; }
-    .section-heading h2 {
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      letter-spacing: -.8px;
-      margin: 8px 0 10px;
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-
-    .section-heading p { color: var(--muted); margin-bottom: 0; }
-    .section-kicker {
-      color: var(--accent);
-      font-size: .75rem;
-      text-transform: uppercase;
-      letter-spacing: 1.7px;
-      font-weight: 850;
-    }
-
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
     .card {
-      padding: 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      box-shadow: var(--shadow);
+      padding: 23px;
       min-width: 0;
     }
 
-    .card h3 { font-size: 1.06rem; margin-bottom: 10px; }
-    .card p { color: var(--muted); font-size: .92rem; margin-bottom: 0; }
+    .card h3 {
+      margin: 8px 0;
+      font-size: 1.06rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
 
     .card-icon {
       display: grid;
       place-items: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      margin-bottom: 15px;
-      background: var(--surface-2);
-      font-size: 1.25rem;
+      width: 43px;
+      height: 43px;
+      border-radius: 11px;
+      background: var(--surface-alt);
+      font-size: 1.2rem;
     }
 
-    .education-card { border-left: 4px solid var(--accent); }
+    .education-card {
+      border-left: 4px solid var(--accent);
+    }
+
     .date-label {
       color: var(--accent);
       font-weight: 800;
-      font-size: .81rem;
+      font-size: 0.83rem;
     }
 
-    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 14px;
+    }
 
     .tag {
-      display: inline-flex;
-      padding: 6px 10px;
+      display: inline-block;
+      padding: 5px 9px;
       border: 1px solid var(--border);
-      background: var(--surface-2);
-      border-radius: 7px;
-      font-size: .78rem;
+      border-radius: 6px;
+      background: var(--surface-alt);
       color: var(--text);
+      font-size: 0.78rem;
     }
 
-    .steps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
 
     .step {
+      padding: 18px 15px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 20px 15px;
+      border-radius: 13px;
     }
 
     .step-number {
       color: var(--accent);
-      font-weight: 900;
-      font-size: .8rem;
+      font-weight: 800;
+      font-size: 0.8rem;
     }
 
-    .step h3 { font-size: .96rem; margin: 7px 0; }
-    .step p { font-size: .82rem; color: var(--muted); margin-bottom: 0; }
-
-    .timeline { display: grid; gap: 20px; }
-    .timeline-card { position: relative; padding-left: 26px; }
-    .timeline-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 5px;
-      bottom: 5px;
-      width: 3px;
-      border-radius: 3px;
-      background: var(--accent);
+    .step h3 {
+      font-size: 0.95rem;
+      margin: 7px 0;
     }
 
-    .timeline-card ul { padding-left: 20px; margin-bottom: 0; }
-    .timeline-card li { margin: 5px 0; font-size: .9rem; }
+    .step p {
+      color: var(--muted);
+      font-size: 0.83rem;
+      margin-bottom: 0;
+    }
 
-    .project-card { display: flex; flex-direction: column; align-items: flex-start; }
-    .project-card .tag-list { margin-bottom: 15px; }
-    .project-card p { flex: 1; }
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
 
-    .research-callout {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      padding: 23px;
+    .timeline-card {
+      border-left: 4px solid var(--accent);
+    }
+
+    .timeline-card ul {
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+
+    .timeline-card li {
+      margin: 5px 0;
+      font-size: 0.91rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .project-card .project-status {
+      margin-top: auto;
+      padding-top: 14px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .research-box {
       margin-top: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
     }
 
-    .research-callout p { margin-bottom: 8px; }
-    .research-callout p:last-child { margin-bottom: 0; }
+    .research-box p {
+      margin: 5px 0;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .result-item {
+      padding: 17px 10px;
+      border-radius: 11px;
+      background: var(--surface-alt);
+      text-align: center;
+    }
+
+    .result-item strong {
+      display: block;
+      font-size: 1.25rem;
+    }
+
+    .result-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
 
     .profile-link {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
       min-height: 135px;
-      padding: 20px;
+      padding: 19px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 15px;
+      border-radius: 13px;
       text-decoration: none;
-      transition: transform .2s, border-color .2s;
       overflow-wrap: anywhere;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .profile-link:hover { transform: translateY(-3px); border-color: var(--accent); }
-    .profile-link strong { font-size: 1rem; }
-    .profile-link span { font-size: .84rem; color: var(--muted); }
-    .profile-link .arrow { color: var(--accent); font-weight: 900; margin-top: auto; }
+    .profile-link:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .profile-link span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .profile-link .link-action {
+      margin-top: auto;
+      color: var(--accent);
+      font-weight: 700;
+    }
 
     .contact-panel {
-      padding: 34px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
+      padding: 28px;
     }
 
-    .contact-panel p { color: var(--muted); }
-    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .contact-panel p {
+      color: var(--muted);
+    }
 
     footer {
       border-top: 1px solid var(--border);
-      padding: 27px 0;
+      padding: 24px 0;
       color: var(--muted);
-      font-size: .82rem;
+      font-size: 0.83rem;
     }
 
     .footer-content {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     .back-top {
       position: fixed;
-      bottom: 20px;
       right: 18px;
-      width: 43px;
-      height: 43px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: var(--bg);
+      bottom: 18px;
+      width: 42px;
+      height: 42px;
       border: none;
+      border-radius: 50%;
+      background: #123653;
+      color: #ffffff;
       font-size: 1.2rem;
       cursor: pointer;
       box-shadow: var(--shadow);
-      z-index: 90;
     }
 
-    .muted { color: var(--muted); }
-    .small { font-size: .82rem; }
+    .small {
+      font-size: 0.82rem;
+    }
 
-    @media (max-width: 960px) {
-      .nav-links { gap: 11px; }
-      .nav-links a { font-size: .77rem; }
-      .hero-grid { gap: 30px; }
-      .steps-grid { grid-template-columns: repeat(3, 1fr); }
+    .muted {
+      color: var(--muted);
+    }
+
+    @media (max-width: 950px) {
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 0.76rem;
+      }
+
+      .hero-grid {
+        gap: 25px;
+      }
+
+      .steps-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 760px) {
-      section { padding: 58px 0; }
-      .hero { padding: 62px 0; }
-      .hero-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .hero-grid { gap: 28px; }
-      h1 { letter-spacing: -1.6px; }
-      .profile-card { max-width: 500px; }
-      .menu-toggle { display: inline-flex; }
-      .nav-actions { gap: 7px; }
+      section {
+        padding: 55px 0;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -1.3px;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
       .nav-links {
         display: none;
         position: absolute;
-        top: 72px;
+        top: 70px;
         left: 0;
         right: 0;
-        padding: 18px 5%;
+        padding: 12px 4%;
         background: var(--surface);
         border-bottom: 1px solid var(--border);
         box-shadow: var(--shadow);
         flex-direction: column;
         align-items: stretch;
-        gap: 0;
       }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 11px 0; font-size: .94rem; }
-      .steps-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-panel { padding: 23px; }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 9px 0;
+        font-size: 0.92rem;
+      }
+
+      .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .profile-card {
+        max-width: 500px;
+      }
     }
 
     @media (max-width: 430px) {
-      .steps-grid { grid-template-columns: 1fr; }
-      .metrics { gap: 7px; }
-      .metric { padding: 13px 6px; }
-      .metric strong { font-size: 1.1rem; }
-      .metric span { font-size: .67rem; }
-      .btn { width: 100%; }
-      .hero-buttons { align-items: stretch; }
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons .btn {
+        width: 100%;
+      }
+
+      .result-grid {
+        gap: 6px;
+      }
+
+      .result-item {
+        padding: 12px 5px;
+      }
+
+      .result-item strong {
+        font-size: 1.05rem;
+      }
+
+      .result-item span {
+        font-size: 0.69rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
         transition: none !important;
       }
     }
@@ -479,7 +646,7 @@
 </head>
 
 <body>
-  <header class="site-header">
+  <header class="header">
     <div class="container nav">
       <a class="brand" href="#accueil">MEDELO <span>MEMEVEGNI</span></a>
 
@@ -491,13 +658,13 @@
         <a href="#experiences">Expériences</a>
         <a href="#projets">Projets</a>
         <a href="#memoire">Mémoire</a>
-        <a href="#publications">Recherche</a>
+        <a href="#recherche">Recherche</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <div class="nav-actions">
+      <div class="nav-controls">
         <button class="icon-button" id="themeToggle" type="button"
-          aria-label="Activer le mode sombre" title="Changer de thème">◐</button>
+          aria-label="Changer de thème" title="Changer de thème">◐</button>
         <button class="icon-button menu-toggle" id="menuToggle" type="button"
           aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
       </div>
@@ -505,164 +672,165 @@
   </header>
 
   <main>
-    <!-- ACCUEIL -->
     <section class="hero" id="accueil">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Statistique appliquée · Data Analysis · Recherche</div>
-          <h1>Medelo<br><span>Memevegni.</span></h1>
+          <div class="eyebrow">Statistique appliquée et analyse de données</div>
+
+          <h1>Medelo<br><span>Memevegni</span></h1>
+
           <p class="hero-description">
-            Statisticien de formation, je m'intéresse à l'analyse quantitative,
-            à l'économétrie, à la modélisation statistique et à la prévision.
-            Mon objectif est de transformer les données en informations utiles
-            à la compréhension des phénomènes et à la prise de décision.
+            Je suis diplômé en statistique appliquée de l'ENSPD,
+            à l'Université de Parakou. Je travaille sur l'analyse de données,
+            les méthodes statistiques, l'économétrie et les séries temporelles.
+            Je m'intéresse particulièrement aux applications de la statistique
+            dans l'économie, la santé et les politiques publiques.
           </p>
 
-          <div class="hero-buttons">
-            <a class="btn btn-primary" href="CV_Medelo_Memevegni.pdf"
+          <div class="buttons">
+            <a class="btn btn-primary"
+              href="CV_Medelo_Memevegni.pdf"
               download="CV_Medelo_Memevegni.pdf">
-              ↓ Télécharger mon CV
+              Télécharger mon CV
             </a>
-            <a class="btn btn-secondary" href="#projets">Découvrir mes projets ↗</a>
+            <a class="btn btn-secondary" href="#projets">
+              Voir mes projets
+            </a>
           </div>
 
           <p class="hero-note">
-            Analyse · Modélisation · Prévision · Aide à la décision
+            Analyse de données, modélisation statistique, économétrie et prévision.
           </p>
 
-          <div class="social-links" aria-label="Profils professionnels">
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/medelo-memevegni-384598397b"
-              target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-            <a class="btn btn-secondary" href="https://github.com/memevegnim-droid"
-              target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            <a class="btn btn-secondary" href="https://orcid.org/0009-0000-0122-7475"
-              target="_blank" rel="noopener noreferrer">ORCID ↗</a>
+          <div class="social-links">
+            <a class="btn btn-secondary"
+              href="https://www.linkedin.com/in/medelo-memevegni-384598397b"
+              target="_blank" rel="noopener noreferrer">LinkedIn</a>
+
+            <a class="btn btn-secondary"
+              href="https://github.com/memevegnim-droid"
+              target="_blank" rel="noopener noreferrer">GitHub</a>
+
+            <a class="btn btn-secondary"
+              href="https://orcid.org/0009-0000-0122-7475"
+              target="_blank" rel="noopener noreferrer">ORCID</a>
           </div>
         </div>
 
         <aside class="profile-card">
-          <div class="monogram" aria-label="Initiales MM">MM</div>
-          <h2>Profil professionnel</h2>
-          <p>Statistique appliquée et analyse de données</p>
+          <div class="monogram">MM</div>
+          <h2>Mon profil</h2>
+          <p>Statistique appliquée et méthodes quantitatives</p>
 
           <div class="profile-line">
-            <strong>Formation</strong>
+            <strong>Diplôme</strong>
             <span>Licence en Statistique appliquée</span>
           </div>
+
           <div class="profile-line">
-            <strong>Institution</strong>
-            <span>ENSPD — Université de Parakou</span>
-          </div>
-          <div class="profile-line">
-            <strong>Résultat académique</strong>
-            <span>14/20 · Mention Bien</span>
+            <strong>Établissement</strong>
+            <span>ENSPD, Université de Parakou</span>
           </div>
 
-          <div class="metrics">
-            <div class="metric">
-              <strong>R</strong>
-              <span>Statistiques</span>
-            </div>
-            <div class="metric">
-              <strong>Python</strong>
-              <span>Programmation</span>
-            </div>
-            <div class="metric">
-              <strong>Stata</strong>
-              <span>Économétrie</span>
-            </div>
+          <div class="profile-line">
+            <strong>Outils de travail</strong>
+            <span>R, Python, Stata, Excel et Power BI</span>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- A PROPOS -->
     <section id="apropos">
       <div class="container">
         <div class="section-heading">
-          <div class="section-kicker">À propos</div>
-          <h2>Comprendre les données pour éclairer les décisions.</h2>
+          <div class="section-label">À propos</div>
+          <h2>Mon parcours et mes centres d'intérêt</h2>
           <p>
-            Mon parcours associe les méthodes statistiques, l'analyse quantitative
-            et l'utilisation d'outils informatiques pour étudier des problématiques
-            économiques, sociales et sanitaires.
+            Ma formation m'a permis d'acquérir des connaissances en analyse
+            statistique, en économétrie et en traitement des données.
+            Je souhaite approfondir ces compétences à travers des projets
+            concrets et la poursuite de mes études.
           </p>
         </div>
 
         <div class="grid-3">
           <article class="card">
-            <div class="card-icon">⌁</div>
+            <div class="card-icon">∑</div>
+            <h3>Statistique appliquée</h3>
+            <p>
+              Utilisation des méthodes statistiques pour décrire des phénomènes,
+              étudier des relations entre variables et interpréter les résultats.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⌘</div>
             <h3>Analyse de données</h3>
             <p>
-              Préparation, contrôle, exploration et interprétation des données
-              pour dégager des tendances et des résultats pertinents.
+              Préparation des bases, exploration des données, analyses quantitatives
+              et présentation des principaux résultats.
             </p>
           </article>
-          <article class="card">
-            <div class="card-icon">∑</div>
-            <h3>Modélisation statistique</h3>
-            <p>
-              Application de méthodes statistiques et économétriques pour
-              étudier les relations entre variables et analyser les phénomènes.
-            </p>
-          </article>
+
           <article class="card">
             <div class="card-icon">↗</div>
-            <h3>Prévision et décision</h3>
+            <h3>Économie quantitative</h3>
             <p>
-              Exploitation des séries temporelles, analyse des tendances et
-              production de résultats utiles à la planification.
+              Étude des indicateurs économiques, analyse conjoncturelle,
+              économétrie et prévision à partir de données.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- FORMATION -->
     <section id="formation">
       <div class="container">
         <div class="section-heading">
-          <div class="section-kicker">Parcours académique</div>
-          <h2>Formation</h2>
-          <p>Une formation orientée vers les méthodes quantitatives et l'analyse statistique.</p>
+          <div class="section-label">Formation</div>
+          <h2>Parcours académique</h2>
         </div>
 
         <article class="card education-card">
-          <div class="date-label">2026 · Diplôme obtenu</div>
+          <div class="date-label">2026</div>
           <h3>Licence en Statistique appliquée</h3>
-          <p><strong>ENSPD — Université de Parakou, Bénin</strong></p>
+          <p><strong>ENSPD, Université de Parakou, Bénin</strong></p>
           <p>
-            Formation en statistique descriptive et inférentielle, probabilités,
-            méthodes d'enquête, économétrie, analyse des données et outils
-            informatiques appliqués aux statistiques.
+            Formation en probabilités, statistique descriptive et inférentielle,
+            méthodes d'enquête, économétrie, analyse de données et utilisation
+            d'outils informatiques pour les travaux statistiques.
           </p>
           <div class="tag-list">
-            <span class="tag">Moyenne : 14/20</span>
-            <span class="tag">Mention Bien</span>
-            <span class="tag">Statistique appliquée</span>
+            <span class="tag">Statistique</span>
+            <span class="tag">Économétrie</span>
+            <span class="tag">Analyse quantitative</span>
           </div>
-          <p class="small" style="margin-top:18px">
-            <strong>Perspective :</strong> poursuivre des études de Master en
-            statistique appliquée, économétrie ou Data Science.
+          <p style="margin-top:18px">
+            <strong>Projet de poursuite d'études :</strong>
+            Master en statistique appliquée, économétrie ou Data Science.
           </p>
         </article>
       </div>
     </section>
 
-    <!-- COMPETENCES -->
     <section id="competences">
       <div class="container">
         <div class="section-heading">
-          <div class="section-kicker">Savoir-faire</div>
-          <h2>Compétences</h2>
-          <p>Des méthodes quantitatives aux outils de traitement et d'analyse des données.</p>
+          <div class="section-label">Compétences</div>
+          <h2>Domaines de compétence</h2>
+          <p>
+            Les méthodes et outils que j'utilise dans mes travaux statistiques.
+          </p>
         </div>
 
         <div class="grid-3">
           <article class="card">
             <div class="card-icon">⌕</div>
-            <h3>Conception et collecte</h3>
-            <p>Conception d'enquêtes, questionnaires, collecte et structuration des bases de données.</p>
+            <h3>Collecte des données</h3>
+            <p>
+              Préparation des questionnaires, organisation de la collecte
+              et structuration des bases de données.
+            </p>
             <div class="tag-list">
               <span class="tag">Enquêtes</span>
               <span class="tag">Questionnaires</span>
@@ -673,7 +841,33 @@
           <article class="card">
             <div class="card-icon">▤</div>
             <h3>Traitement des données</h3>
-            <p>Nettoyage, apurement, contrôle de cohérence, traitement des valeurs manquantes et préparation des données.</p>
+            <p>
+              Nettoyage, apurement, vérification de cohérence et préparation
+              des données avant analyse.
+            </p>
             <div class="tag-list">
               <span class="tag">Nettoyage</span>
-              <
+              <span class="tag">Contrôle qualité</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">∑</div>
+            <h3>Statistique et économétrie</h3>
+            <p>
+              Statistiques descriptives, tests d'hypothèses, régression
+              et analyse quantitative.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Régression</span>
+              <span class="tag">Tests statistiques</span>
+              <span class="tag">Économétrie</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">↗</div>
+            <h3>Séries temporelles</h3>
+            <p>
+              Analyse des tendances, étude des indicateurs économiques
+              et modélisation des évolutions dans le te
