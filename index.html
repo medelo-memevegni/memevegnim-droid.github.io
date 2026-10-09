@@ -107,11 +107,11 @@
       .hero-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .hero { padding: 60px 0; }
       section { padding: 55px 0; }
-      .steps-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .steps-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .showcase-slide { min-height: 290px; }
       .profile-card { max-width: 550px; }
     }
     @media (max-width: 430px) {
-      .steps-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; } .showcase-controls { padding: 0 16px 16px; }
       .buttons .btn { width: 100%; }
       .result-grid { gap: 6px; }
       .result-item { padding: 12px 5px; }
@@ -119,6 +119,46 @@
       .result-item span { font-size: .69rem; }
       h1 { letter-spacing: -1.3px; }
     }
+    /* Refonte visuelle : typographie plus nette, contrastes et cartes plus élégantes */
+    :root { --bg: #f3f6fb; --surface: #ffffff; --surface-alt: #eaf0f7; --text: #172b42; --muted: #63748a; --primary: #123653; --accent: #0b9b83; --border: #d8e2ed; --shadow: 0 16px 42px rgba(18,54,83,.09); --header: rgba(248,251,255,.94); }
+    [data-theme="dark"] { --bg: #0c1521; --surface: #142235; --surface-alt: #1c3047; --text: #edf4fc; --muted: #b1c0d1; --primary: #a9d4f4; --accent: #5dd8ba; --border: #2c4057; --shadow: 0 16px 42px rgba(0,0,0,.22); --header: rgba(12,21,33,.94); }
+    body { font-family: Inter, "Segoe UI", Arial, sans-serif; line-height: 1.72; }
+    .header { box-shadow: 0 4px 22px rgba(18,54,83,.04); }
+    .brand { letter-spacing: .3px; }
+    .hero { position: relative; overflow: hidden; padding: 94px 0 88px; background: radial-gradient(ellipse at 80% 8%, rgba(11,155,131,.17), transparent 30%), radial-gradient(ellipse at 10% 90%, rgba(36,113,173,.10), transparent 32%), var(--bg); }
+    .hero::after { content: ""; position: absolute; width: 300px; height: 300px; right: -145px; bottom: -175px; border: 1px solid rgba(11,155,131,.25); border-radius: 50%; box-shadow: 0 0 0 35px rgba(11,155,131,.035), 0 0 0 70px rgba(11,155,131,.025); pointer-events: none; }
+    .hero-grid { position: relative; z-index: 1; }
+    .eyebrow, .section-label { letter-spacing: 1.8px; }
+    h1 { font-size: clamp(2.9rem, 6vw, 5.2rem); }
+    .profile-card, .card, .contact-panel, .profile-link { border-radius: 19px; box-shadow: var(--shadow); }
+    .profile-card { padding: 30px; }
+    .card { padding: 26px; transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease; }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 20px 42px rgba(18,54,83,.12); }
+    .btn { border-radius: 999px; padding: 12px 19px; }
+    .btn-primary { background: linear-gradient(135deg, #123653, #176b78); }
+    .monogram { width: 82px; height: 82px; border-radius: 24px; font-size: 1.7rem; box-shadow: 0 12px 24px rgba(18,54,83,.18); }
+    .section-heading { margin-bottom: 34px; }
+    section:nth-of-type(even):not(.hero) { background: color-mix(in srgb, var(--surface-alt) 32%, var(--bg)); }
+    .timeline { display: grid; gap: 18px; }
+    .contact-panel { padding: 32px; }
+    .contact-methods { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 8px 0 20px; }
+    .contact-method { display: flex; flex-direction: column; gap: 5px; padding: 18px; border: 1px solid var(--border); background: var(--surface-alt); border-radius: 14px; text-decoration: none; overflow-wrap: anywhere; }
+    .contact-method strong { font-size: .95rem; }
+    .contact-method span { color: var(--muted); font-size: .88rem; }
+    .contact-method:hover { border-color: var(--accent); }
+    .showcase { position: relative; overflow: hidden; border-radius: 22px; background: linear-gradient(135deg,#102d49,#145c68); color: #fff; box-shadow: 0 18px 42px rgba(18,54,83,.17); }
+    .showcase-track { display: flex; transition: transform .45s ease; }
+    .showcase-slide { flex: 0 0 100%; min-height: 255px; padding: clamp(24px,5vw,46px); display: flex; flex-direction: column; justify-content: center; }
+    .showcase-kicker { color: #85e5d0; font-size: .76rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+    .showcase-slide h3 { font-size: clamp(1.35rem,3vw,2rem); margin: 10px 0; max-width: 720px; }
+    .showcase-slide p { color: #d6e6f0; max-width: 730px; margin: 0; }
+    .showcase-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 22px 22px; }
+    .showcase-buttons { display: flex; gap: 8px; }
+    .showcase-buttons button { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; color: #fff; background: rgba(255,255,255,.1); cursor: pointer; }
+    .showcase-dots { display: flex; gap: 7px; }
+    .showcase-dots button { width: 8px; height: 8px; border: 0; border-radius: 99px; background: rgba(255,255,255,.45); padding: 0; cursor: pointer; }
+    .showcase-dots button[aria-current="true"] { width: 25px; background: #85e5d0; }
+    @media (max-width: 850px) { .contact-methods { grid-template-columns: 1fr; } .hero { padding: 65px 0; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
   </style>
 </head>
@@ -129,7 +169,7 @@
       <nav class="nav-links" id="navigation" aria-label="Navigation principale">
         <a href="#accueil">Accueil</a><a href="#apropos">À propos</a>
         <a href="#formation">Formation</a><a href="#competences">Compétences</a>
-        <a href="#experiences">Expériences</a><a href="#projets">Projets</a>
+        <a href="#apercu">Aperçu</a><a href="#experiences">Expériences</a><a href="#projets">Projets</a>
         <a href="#memoire">Mémoire</a><a href="#recherche">Recherche</a><a href="#contact">Contact</a>
       </nav>
       <div class="nav-controls">
@@ -215,11 +255,96 @@
       </div>
     </section>
 
+    <section id="apercu">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">En pratique</div>
+          <h2>Des données aux décisions</h2>
+          <p>Un aperçu des sujets sur lesquels je travaille : analyse quantitative, outils de gestion et aide à la décision.</p>
+        </div>
+        <div class="showcase" aria-label="Diaporama des domaines de travail">
+          <div class="showcase-track" id="showcaseTrack">
+            <article class="showcase-slide" aria-roledescription="diapositive">
+              <div class="showcase-kicker">01 · Économie quantitative</div>
+              <h3>Comprendre les tendances et anticiper les évolutions</h3>
+              <p>Analyse des indicateurs économiques, séries temporelles et prévision de l'inflation à partir des données de l'IHPC.</p>
+            </article>
+            <article class="showcase-slide" aria-roledescription="diapositive">
+              <div class="showcase-kicker">02 · Outils de pilotage</div>
+              <h3>Structurer l'information pour mieux décider</h3>
+              <p>Conception en cours de matrices de décision, templates budgétaires, outils de contrôle budgétaire et systèmes de suivi décisionnel.</p>
+            </article>
+            <article class="showcase-slide" aria-roledescription="diapositive">
+              <div class="showcase-kicker">03 · Collecte et qualité des données</div>
+              <h3>De l'enquête au rapport exploitable</h3>
+              <p>Expérience en collecte, contrôle d'enquête, coordination d'équipe et contribution à l'élaboration de rapports.</p>
+            </article>
+          </div>
+          <div class="showcase-controls">
+            <div class="showcase-dots" id="showcaseDots" aria-label="Choisir une diapositive">
+              <button type="button" aria-label="Diapositive 1" aria-current="true" data-slide="0"></button>
+              <button type="button" aria-label="Diapositive 2" aria-current="false" data-slide="1"></button>
+              <button type="button" aria-label="Diapositive 3" aria-current="false" data-slide="2"></button>
+            </div>
+            <div class="showcase-buttons">
+              <button type="button" id="showcasePrev" aria-label="Diapositive précédente">←</button>
+              <button type="button" id="showcaseNext" aria-label="Diapositive suivante">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="experiences">
-      <div class="container"><div class="section-heading"><div class="section-label">Expériences</div><h2>Expériences professionnelles</h2><p>Stages et travaux réalisés dans les domaines des statistiques économiques et sanitaires.</p></div>
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Expériences</div>
+          <h2>Expériences professionnelles et missions</h2>
+          <p>Des expériences en statistiques économiques et sanitaires, en collecte d'informations et en développement d'outils de gestion.</p>
+        </div>
         <div class="timeline">
-          <article class="card timeline-card"><div class="date-label">Depuis août 2026</div><h3>Stage professionnel à la Direction de la Prévision et de la Conjoncture (DPC)</h3><p><strong>Ministère de l'Économie et des Finances, Bénin</strong></p><ul><li>Travaux sur des indicateurs économiques et des séries temporelles.</li><li>Analyse de l'évolution des prix et exercice de prévision de l'IHPC.</li><li>Étude quantitative des relations entre indicateurs macroéconomiques.</li></ul></article>
-          <article class="card timeline-card"><div class="date-label">Mars à juin 2026</div><h3>Stage en planification et statistiques sanitaires</h3><p><strong>SPAF, Direction départementale de la Santé du Borgou</strong></p><ul><li>Contribution aux travaux de revue de performance des zones sanitaires.</li><li>Participation à la préparation de supports de présentation et de documents statistiques.</li><li>Appui aux travaux liés à la revue annuelle des activités et à l'annuaire statistique.</li></ul></article>
+          <article class="card timeline-card">
+            <div class="date-label">Depuis août 2026</div>
+            <h3>Stage professionnel · Direction de la Prévision et de la Conjoncture (DPC)</h3>
+            <p><strong>Ministère de l'Économie et des Finances, Bénin</strong></p>
+            <ul>
+              <li>Travaux d'analyse et de suivi d'indicateurs économiques et conjoncturels.</li>
+              <li>Étude des séries de l'Indice harmonisé des prix à la consommation (IHPC) et travail de prévision de l'inflation.</li>
+              <li>Exploration des relations entre indicateurs macroéconomiques, notamment le PIB et l'investissement.</li>
+              <li>Contribution à la préparation d'outils d'analyse, de tableaux de suivi et de supports utiles à la prise de décision.</li>
+              <li>Travaux en cours autour de matrices de décision, de templates budgétaires et d'outils de contrôle et de suivi budgétaires.</li>
+            </ul>
+          </article>
+          <article class="card timeline-card">
+            <div class="date-label">Mars à juin 2026</div>
+            <h3>Stage en planification et statistiques sanitaires</h3>
+            <p><strong>SPAF · Direction départementale de la Santé du Borgou (DDS-B)</strong></p>
+            <ul>
+              <li>Contribution à la préparation des supports PowerPoint de la revue de performance des zones sanitaires du Borgou.</li>
+              <li>Participation aux travaux de revue de performance 2025 et à la préparation de la Revue annuelle des activités (RAE 2025).</li>
+              <li>Appui à la préparation et à la mise en forme de documents statistiques, notamment l'annuaire statistique sanitaire.</li>
+              <li>Participation à l'organisation et à la synthèse de données sanitaires pour les travaux de planification et de suivi des performances.</li>
+            </ul>
+          </article>
+          <article class="card timeline-card">
+            <div class="date-label">2025 et 2026</div>
+            <h3>Enquête sur l'utilisation des TIC et les dynamiques sociales</h3>
+            <p><strong>Université de Parakou</strong></p>
+            <ul>
+              <li><strong>2025 : </strong>agent enquêteur, chargé de la collecte des informations sur le terrain.</li>
+              <li><strong>2026 : </strong>contrôleur et chef d'équipe, avec des responsabilités de suivi de la collecte et de coordination des enquêteurs.</li>
+              <li>Contribution à l'élaboration du rapport d'enquête.</li>
+            </ul>
+          </article>
+          <article class="card timeline-card">
+            <div class="date-label">Projet personnel</div>
+            <h3>Création d'un outil d'inventaire</h3>
+            <p><strong>Boutique Aiwibi Aiwina</strong></p>
+            <ul>
+              <li>Conception d'un outil pour organiser le suivi des articles et faciliter la gestion de l'inventaire.</li>
+              <li>Structuration des informations pour rendre les opérations de suivi plus simples et plus lisibles.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -231,6 +356,10 @@
           <article class="card project-card"><div class="card-icon">∑</div><h3>Investissement et PIB au Bénin</h3><p>Étude économétrique de la relation entre le PIB courant et l'investissement sur la période 1999-2025, avec préparation des séries et tests préalables à la modélisation.</p><div class="tag-list"><span class="tag">Économétrie</span><span class="tag">Régression</span><span class="tag">Données macroéconomiques</span></div><p class="project-status">Analyse exploratoire et économétrique.</p></article>
           <article class="card project-card"><div class="card-icon">▤</div><h3>Analyse multicritère de l'investissement public</h3><p>Conception d'une matrice d'analyse pour comparer des projets d'investissement à partir de critères définis et organiser les informations utiles à la décision.</p><div class="tag-list"><span class="tag">Python</span><span class="tag">Analyse multicritère</span><span class="tag">Aide à la décision</span></div><p class="project-status">Prototype d'analyse.</p></article>
           <article class="card project-card"><div class="card-icon">＋</div><h3>Malnutrition chez les enfants de moins de cinq ans</h3><p>Analyse des données de l'EDS Bénin 2017-2018 pour étudier les facteurs associés à la malnutrition infantile, à l'aide de statistiques descriptives et d'une régression logistique.</p><div class="tag-list"><span class="tag">Stata 17</span><span class="tag">EDS 2017-2018</span><span class="tag">Régression logistique</span></div><p class="project-status">Travail issu du mémoire de Licence.</p></article>
+          <article class="card project-card"><div class="card-icon">▦</div><h3>Matrices de décision et analyse multicritère</h3><p>Développement de matrices structurées pour comparer plusieurs options selon des critères définis et faciliter la justification des choix.</p><div class="tag-list"><span class="tag">Python</span><span class="tag">Analyse multicritère</span><span class="tag">Aide à la décision</span></div><p class="project-status">Travail en cours de développement.</p></article>
+          <article class="card project-card"><div class="card-icon">▤</div><h3>Outils budgétaires et contrôle de gestion</h3><p>Conception en cours de templates budgétaires et d'outils de contrôle permettant de structurer les prévisions, suivre les écarts et organiser les informations budgétaires.</p><div class="tag-list"><span class="tag">Budgétisation</span><span class="tag">Contrôle budgétaire</span><span class="tag">Tableaux de suivi</span></div><p class="project-status">Travail en cours de développement.</p></article>
+          <article class="card project-card"><div class="card-icon">◎</div><h3>Système de suivi décisionnel</h3><p>Réflexion et conception d'un système de suivi regroupant des indicateurs clés pour visualiser l'avancement, repérer les écarts et soutenir la prise de décision.</p><div class="tag-list"><span class="tag">Indicateurs</span><span class="tag">Suivi de performance</span><span class="tag">Reporting</span></div><p class="project-status">Concept et outils en cours d'élaboration.</p></article>
+          <article class="card project-card"><div class="card-icon">▣</div><h3>Outil d'inventaire pour une boutique</h3><p>Création d'un outil de suivi d'inventaire pour la boutique Aiwibi Aiwina, avec une organisation des données destinée à faciliter le contrôle des articles.</p><div class="tag-list"><span class="tag">Gestion de stock</span><span class="tag">Excel / données</span><span class="tag">Suivi</span></div><p class="project-status">Outil créé.</p></article>
         </div>
       </div>
     </section>
@@ -266,11 +395,20 @@
     </section>
 
     <section id="contact">
-      <div class="container"><div class="section-heading"><div class="section-label">Contact</div><h2>Échanger sur un projet ou une opportunité</h2><p>Pour discuter d'un projet d'analyse de données, d'une collaboration ou d'une opportunité professionnelle, vous pouvez me retrouver sur mes profils.</p></div>
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Contact</div>
+          <h2>Parlons de données, de projets et de collaboration</h2>
+          <p>Pour une opportunité professionnelle, une collaboration ou un échange autour d'un projet d'analyse, vous pouvez me joindre directement ou consulter mes profils.</p>
+        </div>
         <div class="contact-panel">
+          <div class="contact-methods">
+            <a class="contact-method" href="https://wa.me/2290164799420" target="_blank" rel="noopener noreferrer"><strong>WhatsApp</strong><span>+229 01 64 79 94 20</span><span class="link-action">Écrire sur WhatsApp ↗</span></a>
+            <a class="contact-method" href="tel:+2290167901798"><strong>Appel téléphonique</strong><span>+229 01 67 90 17 98</span><span class="link-action">Appeler ↗</span></a>
+            <a class="contact-method" href="https://www.linkedin.com/in/medelo-memevegni-384598397b" target="_blank" rel="noopener noreferrer"><strong>LinkedIn</strong><span>Profil professionnel</span><span class="link-action">Consulter le profil ↗</span></a>
+          </div>
           <div class="buttons">
-            <a class="btn btn-primary" href="https://www.linkedin.com/in/medelo-memevegni-384598397b" target="_blank" rel="noopener noreferrer">Me contacter sur LinkedIn</a>
-            <a class="btn btn-secondary" href="https://github.com/memevegnim-droid" target="_blank" rel="noopener noreferrer">Voir mes projets GitHub</a>
+            <a class="btn btn-primary" href="https://github.com/memevegnim-droid" target="_blank" rel="noopener noreferrer">Voir mes projets GitHub</a>
             <a class="btn btn-secondary" href="CV_Medelo_Memevegni.pdf" download="CV_Medelo_Memevegni.pdf">Télécharger mon CV</a>
           </div>
         </div>
@@ -321,6 +459,38 @@
       backTop.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+
+      const showcaseTrack = document.getElementById('showcaseTrack');
+      const showcaseDots = Array.from(document.querySelectorAll('#showcaseDots button'));
+      let currentSlide = 0;
+      function showSlide(index) {
+        if (!showcaseTrack || showcaseDots.length === 0) return;
+        currentSlide = (index + showcaseDots.length) % showcaseDots.length;
+        showcaseTrack.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+        showcaseDots.forEach(function (dot, i) {
+          dot.setAttribute('aria-current', String(i === currentSlide));
+        });
+      }
+      const prevSlide = document.getElementById('showcasePrev');
+      const nextSlide = document.getElementById('showcaseNext');
+      if (prevSlide) prevSlide.addEventListener('click', function () { showSlide(currentSlide - 1); });
+      if (nextSlide) nextSlide.addEventListener('click', function () { showSlide(currentSlide + 1); });
+      showcaseDots.forEach(function (dot) {
+        dot.addEventListener('click', function () { showSlide(Number(dot.dataset.slide)); });
+      });
+      const showcase = document.querySelector('.showcase');
+      if (showcase) {
+        let touchStartX = null;
+        showcase.addEventListener('touchstart', function (event) {
+          touchStartX = event.changedTouches[0].screenX;
+        }, { passive: true });
+        showcase.addEventListener('touchend', function (event) {
+          if (touchStartX === null) return;
+          const delta = event.changedTouches[0].screenX - touchStartX;
+          if (Math.abs(delta) > 45) showSlide(currentSlide + (delta < 0 ? 1 : -1));
+          touchStartX = null;
+        }, { passive: true });
+      }
 
       document.getElementById('year').textContent = new Date().getFullYear();
     })();
