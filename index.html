@@ -23,7 +23,7 @@
       --header: rgba(16,25,37,.96);
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    html { scroll-behavior: auto; scroll-padding-top: 90px; }
     body { margin: 0; background: var(--bg); color: var(--text); font-family: Arial, Helvetica, sans-serif; line-height: 1.7; }
     a { color: inherit; }
     button { font: inherit; }
@@ -160,6 +160,24 @@
     .showcase-dots button[aria-current="true"] { width: 25px; background: #85e5d0; }
     @media (max-width: 850px) { .contact-methods { grid-template-columns: 1fr; } .hero { padding: 65px 0; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+    /* Palette choisie : bleu marine, blanc et bleu clair */
+    :root { --bg: #f5f8fc; --surface: #ffffff; --surface-alt: #eaf2fb; --text: #172b42; --muted: #62748a; --primary: #102b49; --accent: #4d9de0; --border: #d7e2ef; --shadow: 0 12px 32px rgba(16,43,73,.08); --header: rgba(255,255,255,.96); }
+    [data-theme="dark"] { --bg: #0d1827; --surface: #15253a; --surface-alt: #1e334d; --text: #edf4fc; --muted: #b3c3d5; --primary: #a9d5ff; --accent: #7dbfff; --border: #2c425c; --shadow: 0 12px 32px rgba(0,0,0,.2); --header: rgba(13,24,39,.96); }
+    .brand span, h1 span, .eyebrow, .section-label, .date-label, .step-number { color: var(--accent); }
+    .hero { background: radial-gradient(ellipse at 82% 8%, rgba(77,157,224,.15), transparent 32%), radial-gradient(ellipse at 8% 90%, rgba(77,157,224,.08), transparent 32%), var(--bg); }
+    .hero::after { border-color: rgba(77,157,224,.25); box-shadow: 0 0 0 35px rgba(77,157,224,.035), 0 0 0 70px rgba(77,157,224,.025); }
+    .btn-primary { background: #102b49; border-color: #102b49; color: #fff; }
+    .monogram { background: linear-gradient(140deg,#102b49,#4d9de0); }
+    .education-card, .timeline-card { border-left-color: var(--accent); }
+    .showcase { display: none; }
+    .showcase-cards { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+    .showcase-card { background: var(--surface); border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); }
+    .showcase-card .showcase-kicker { color: var(--accent); font-size: .76rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
+    .showcase-card h3 { color: var(--text); font-size: 1.1rem; margin: 10px 0; }
+    .showcase-card p { color: var(--muted); font-size: .92rem; margin-bottom: 0; }
+    .card:hover { border-color: var(--accent); box-shadow: 0 16px 34px rgba(16,43,73,.1); }
+    .contact-method:hover { border-color: var(--accent); }
+    @media (max-width: 850px) { .showcase-cards { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -262,35 +280,22 @@
           <h2>Des données aux décisions</h2>
           <p>Un aperçu des sujets sur lesquels je travaille : analyse quantitative, outils de gestion et aide à la décision.</p>
         </div>
-        <div class="showcase" aria-label="Diaporama des domaines de travail">
-          <div class="showcase-track" id="showcaseTrack">
-            <article class="showcase-slide" aria-roledescription="diapositive">
-              <div class="showcase-kicker">01 · Économie quantitative</div>
-              <h3>Comprendre les tendances et anticiper les évolutions</h3>
-              <p>Analyse des indicateurs économiques, séries temporelles et prévision de l'inflation à partir des données de l'IHPC.</p>
-            </article>
-            <article class="showcase-slide" aria-roledescription="diapositive">
-              <div class="showcase-kicker">02 · Outils de pilotage</div>
-              <h3>Structurer l'information pour mieux décider</h3>
-              <p>Conception en cours de matrices de décision, templates budgétaires, outils de contrôle budgétaire et systèmes de suivi décisionnel.</p>
-            </article>
-            <article class="showcase-slide" aria-roledescription="diapositive">
-              <div class="showcase-kicker">03 · Collecte et qualité des données</div>
-              <h3>De l'enquête au rapport exploitable</h3>
-              <p>Expérience en collecte, contrôle d'enquête, coordination d'équipe et contribution à l'élaboration de rapports.</p>
-            </article>
-          </div>
-          <div class="showcase-controls">
-            <div class="showcase-dots" id="showcaseDots" aria-label="Choisir une diapositive">
-              <button type="button" aria-label="Diapositive 1" aria-current="true" data-slide="0"></button>
-              <button type="button" aria-label="Diapositive 2" aria-current="false" data-slide="1"></button>
-              <button type="button" aria-label="Diapositive 3" aria-current="false" data-slide="2"></button>
-            </div>
-            <div class="showcase-buttons">
-              <button type="button" id="showcasePrev" aria-label="Diapositive précédente">←</button>
-              <button type="button" id="showcaseNext" aria-label="Diapositive suivante">→</button>
-            </div>
-          </div>
+        <div class="showcase-cards" aria-label="Domaines de travail">
+          <article class="showcase-card">
+            <div class="showcase-kicker">Économie quantitative</div>
+            <h3>Comprendre les tendances et anticiper les évolutions</h3>
+            <p>Analyse des indicateurs économiques, séries temporelles et prévision de l'inflation à partir des données de l'IHPC.</p>
+          </article>
+          <article class="showcase-card">
+            <div class="showcase-kicker">Outils de pilotage</div>
+            <h3>Structurer l'information pour mieux décider</h3>
+            <p>Conception en cours de matrices de décision, modèles budgétaires, outils de contrôle budgétaire et systèmes de suivi décisionnel.</p>
+          </article>
+          <article class="showcase-card">
+            <div class="showcase-kicker">Collecte et qualité des données</div>
+            <h3>De l'enquête au rapport exploitable</h3>
+            <p>Expérience en collecte, contrôle d'enquête, coordination d'équipe et contribution à l'élaboration de rapports.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -459,38 +464,6 @@
       backTop.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
-
-      const showcaseTrack = document.getElementById('showcaseTrack');
-      const showcaseDots = Array.from(document.querySelectorAll('#showcaseDots button'));
-      let currentSlide = 0;
-      function showSlide(index) {
-        if (!showcaseTrack || showcaseDots.length === 0) return;
-        currentSlide = (index + showcaseDots.length) % showcaseDots.length;
-        showcaseTrack.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-        showcaseDots.forEach(function (dot, i) {
-          dot.setAttribute('aria-current', String(i === currentSlide));
-        });
-      }
-      const prevSlide = document.getElementById('showcasePrev');
-      const nextSlide = document.getElementById('showcaseNext');
-      if (prevSlide) prevSlide.addEventListener('click', function () { showSlide(currentSlide - 1); });
-      if (nextSlide) nextSlide.addEventListener('click', function () { showSlide(currentSlide + 1); });
-      showcaseDots.forEach(function (dot) {
-        dot.addEventListener('click', function () { showSlide(Number(dot.dataset.slide)); });
-      });
-      const showcase = document.querySelector('.showcase');
-      if (showcase) {
-        let touchStartX = null;
-        showcase.addEventListener('touchstart', function (event) {
-          touchStartX = event.changedTouches[0].screenX;
-        }, { passive: true });
-        showcase.addEventListener('touchend', function (event) {
-          if (touchStartX === null) return;
-          const delta = event.changedTouches[0].screenX - touchStartX;
-          if (Math.abs(delta) > 45) showSlide(currentSlide + (delta < 0 ? 1 : -1));
-          touchStartX = null;
-        }, { passive: true });
-      }
 
       document.getElementById('year').textContent = new Date().getFullYear();
     })();
