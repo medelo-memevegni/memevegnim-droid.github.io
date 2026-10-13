@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#123653">
-  <meta name="description" content="Portfolio professionnel de Medelo Memevegni en statistique appliquée, avec rubriques dédiées au parcours, aux compétences, aux expériences et aux projets.">
+  <meta name="description" content="Portfolio professionnel de Medelo Memevegni en statistique appliquée, avec des études de cas détaillées en statistique appliquée, économétrie et santé publique.">
   <meta name="author" content="Medelo Memevegni">
   <title>Medelo Memevegni | Statistique appliquée et analyse de données</title>
   <style>
@@ -238,6 +238,20 @@
     @media (max-width: 430px) { .home-explore-grid { grid-template-columns: 1fr; } .home-explore-link { min-height: 145px; } }
     @media (prefers-reduced-motion: reduce) { .portfolio-page.page-active { animation: none; } .home-explore-link { transition: none; } }
 
+
+    /* Fiches de projets : présentation détaillée, sans diaporama */
+    .case-meta-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin: 22px 0; }
+    .case-meta { padding: 17px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface); }
+    .case-meta strong { display: block; margin-bottom: 4px; color: var(--text); font-size: .9rem; }
+    .case-meta span { color: var(--muted); font-size: .86rem; }
+    .case-block { margin-top: 18px; }
+    .case-block ul { padding-left: 22px; }
+    .case-block li { margin: 7px 0; }
+    .case-note { padding: 16px 18px; border-left: 4px solid var(--accent); background: var(--surface-alt); border-radius: 0 12px 12px 0; margin-top: 20px; }
+    .project-detail-link { margin-top: 8px; }
+    .case-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    @media (max-width: 700px) { .case-meta-grid { grid-template-columns: 1fr; } }
+
   </style>
 </head>
 <body>
@@ -435,17 +449,133 @@
     </section>
 
     <section id="projets">
-      <div class="container"><div class="section-heading"><div class="section-label">Projets</div><h2>Travaux d'analyse de données</h2><p>Quelques travaux réalisés dans le cadre de ma formation et de mes activités d'analyse.</p></div>
+      <div class="container"><div class="section-heading"><div class="section-label">Projets</div><h2>Travaux d'analyse de données</h2><p>Découvrez trois études détaillées en statistique, économétrie et santé publique, ainsi que d’autres outils et travaux en cours.</p></div>
         <div class="grid-2">
-          <article class="card project-card"><div class="card-icon">↗</div><h3>Prévision de l'inflation au Bénin</h3><p>Analyse de l'Indice harmonisé des prix à la consommation (IHPC) et mise en œuvre d'une démarche de modélisation ARIMA pour étudier son évolution et produire des prévisions.</p><div class="tag-list"><span class="tag">Séries temporelles</span><span class="tag">ARIMA</span><span class="tag">Python</span></div><p class="project-status">Travail d'analyse en cours de développement.</p></article>
-          <article class="card project-card"><div class="card-icon">∑</div><h3>Investissement et PIB au Bénin</h3><p>Étude économétrique de la relation entre le PIB courant et l'investissement sur la période 1999-2025, avec préparation des séries et tests préalables à la modélisation.</p><div class="tag-list"><span class="tag">Économétrie</span><span class="tag">Régression</span><span class="tag">Données macroéconomiques</span></div><p class="project-status">Analyse exploratoire et économétrique.</p></article>
+          <article class="card project-card"><div class="card-icon">↗</div><h3>Prévision de l'inflation au Bénin</h3><p>Analyse de l'Indice harmonisé des prix à la consommation (IHPC) et mise en œuvre d'une démarche de modélisation ARIMA pour étudier son évolution et produire des prévisions.</p><div class="tag-list"><span class="tag">Séries temporelles</span><span class="tag">ARIMA</span><span class="tag">Python</span></div><p class="project-status">Analyse en cours de développement.</p><a class="btn btn-secondary project-detail-link" href="#projet-inflation">Découvrir l’étude →</a></article>
+          <article class="card project-card"><div class="card-icon">∑</div><h3>Investissement et PIB au Bénin</h3><p>Étude économétrique de la relation entre le PIB courant et l'investissement sur la période 1999-2025, avec préparation des séries et tests préalables à la modélisation.</p><div class="tag-list"><span class="tag">Économétrie</span><span class="tag">Régression</span><span class="tag">Données macroéconomiques</span></div><p class="project-status">Analyse exploratoire et économétrique.</p><a class="btn btn-secondary project-detail-link" href="#projet-pib-investissement">Découvrir l’étude →</a></article>
           <article class="card project-card"><div class="card-icon">▤</div><h3>Analyse multicritère de l'investissement public</h3><p>Conception d'une matrice d'analyse pour comparer des projets d'investissement à partir de critères définis et organiser les informations utiles à la décision.</p><div class="tag-list"><span class="tag">Python</span><span class="tag">Analyse multicritère</span><span class="tag">Aide à la décision</span></div><p class="project-status">Prototype d'analyse.</p></article>
-          <article class="card project-card"><div class="card-icon">＋</div><h3>Malnutrition chez les enfants de moins de cinq ans</h3><p>Analyse des données de l'EDS Bénin 2017-2018 pour étudier les facteurs associés à la malnutrition infantile, à l'aide de statistiques descriptives et d'une régression logistique.</p><div class="tag-list"><span class="tag">Stata 17</span><span class="tag">EDS 2017-2018</span><span class="tag">Régression logistique</span></div><p class="project-status">Travail issu du mémoire de Licence.</p></article>
+          <article class="card project-card"><div class="card-icon">＋</div><h3>Malnutrition chez les enfants de moins de cinq ans</h3><p>Analyse des données de l'EDS Bénin 2017-2018 pour étudier les facteurs associés à la malnutrition infantile, à l'aide de statistiques descriptives et d'une régression logistique.</p><div class="tag-list"><span class="tag">Stata 17</span><span class="tag">EDS 2017-2018</span><span class="tag">Régression logistique</span></div><p class="project-status">Travail issu du mémoire de Licence.</p><a class="btn btn-secondary project-detail-link" href="#projet-malnutrition">Découvrir l’étude →</a></article>
           <article class="card project-card"><div class="card-icon">▦</div><h3>Matrices de décision et analyse multicritère</h3><p>Développement de matrices structurées pour comparer plusieurs options selon des critères définis et faciliter la justification des choix.</p><div class="tag-list"><span class="tag">Python</span><span class="tag">Analyse multicritère</span><span class="tag">Aide à la décision</span></div><p class="project-status">Travail en cours de développement.</p></article>
           <article class="card project-card"><div class="card-icon">▤</div><h3>Outils budgétaires et contrôle de gestion</h3><p>Conception en cours de templates budgétaires et d'outils de contrôle permettant de structurer les prévisions, suivre les écarts et organiser les informations budgétaires.</p><div class="tag-list"><span class="tag">Budgétisation</span><span class="tag">Contrôle budgétaire</span><span class="tag">Tableaux de suivi</span></div><p class="project-status">Travail en cours de développement.</p></article>
           <article class="card project-card"><div class="card-icon">◎</div><h3>Système de suivi décisionnel</h3><p>Réflexion et conception d'un système de suivi regroupant des indicateurs clés pour visualiser l'avancement, repérer les écarts et soutenir la prise de décision.</p><div class="tag-list"><span class="tag">Indicateurs</span><span class="tag">Suivi de performance</span><span class="tag">Reporting</span></div><p class="project-status">Concept et outils en cours d'élaboration.</p></article>
           <article class="card project-card"><div class="card-icon">▣</div><h3>Outil d'inventaire pour une boutique</h3><p>Création d'un outil de suivi d'inventaire pour la boutique Aiwibi Aiwina, avec une organisation des données destinée à faciliter le contrôle des articles.</p><div class="tag-list"><span class="tag">Gestion de stock</span><span class="tag">Excel / données</span><span class="tag">Suivi</span></div><p class="project-status">Outil créé.</p></article>
         </div>
+      </div>
+    </section>
+
+    <section id="projet-inflation">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Étude de cas · 01</div>
+          <h2>Prévision de l’inflation au Bénin</h2>
+          <p>Analyse de la série de l’Indice harmonisé des prix à la consommation (IHPC) et application d’une démarche de modélisation ARIMA pour étudier l’évolution de l’indicateur et produire des prévisions.</p>
+        </div>
+        <div class="case-meta-grid">
+          <div class="case-meta"><strong>Période étudiée</strong><span>Décembre 2020 à juillet 2026</span></div>
+          <div class="case-meta"><strong>Observations</strong><span>68 observations mensuelles</span></div>
+          <div class="case-meta"><strong>Méthode principale</strong><span>Série temporelle · ARIMA(2,0,0)</span></div>
+        </div>
+        <article class="card case-block">
+          <h3>Question d’analyse</h3>
+          <p>Comment décrire l’évolution de l’indicateur d’inflation étudié à partir des données IHPC disponibles et quelle trajectoire le modèle statistique estime-t-il pour la période de prévision ?</p>
+          <h3>Données et démarche</h3>
+          <ul>
+            <li>Organisation de la série mensuelle couvrant décembre 2020 à juillet 2026.</li>
+            <li>Analyse descriptive de la dynamique observée et de la dispersion de l’indicateur.</li>
+            <li>Estimation d’un modèle ARIMA(2,0,0) et examen des résidus à l’aide du test de Ljung–Box.</li>
+            <li>Production de prévisions jusqu’à l’horizon de décembre 2028.</li>
+          </ul>
+          <div class="tag-list"><span class="tag">IHPC</span><span class="tag">Séries temporelles</span><span class="tag">ARIMA</span><span class="tag">Prévision</span></div>
+        </article>
+        <div class="result-grid">
+          <div class="result-item"><strong>1,71 %</strong><span>Moyenne de l’indicateur étudié</span></div>
+          <div class="result-item"><strong>45,5 %</strong><span>Coefficient de variation rapporté</span></div>
+          <div class="result-item"><strong>0,4936</strong><span>p-value du test de Ljung–Box</span></div>
+        </div>
+        <article class="card case-block">
+          <h3>Résultat de la modélisation</h3>
+          <p>Le modèle retenu est un ARIMA(2,0,0). Le test de Ljung–Box donne une p-value de 0,4936 ; selon le seuil usuel de 5 %, ce résultat ne met pas en évidence d’autocorrélation résiduelle statistiquement significative dans le diagnostic réalisé.</p>
+          <p>Dans les prévisions calculées, l’indicateur se stabilise autour de 1,72 % à partir de mai 2027 et reste à ce niveau approximatif jusqu’à décembre 2028. Il s’agit d’une projection produite par le modèle, et non d’une valeur observée ni d’une certitude sur l’évolution future.</p>
+          <div class="case-note"><strong>À retenir :</strong> cette étude illustre l’utilisation de séries temporelles pour structurer une analyse conjoncturelle et produire un scénario de prévision reproductible.</div>
+        </article>
+        <div class="case-actions"><a class="btn btn-primary" href="#projets">← Retour aux projets</a><a class="btn btn-secondary" href="#contact">Me contacter à propos de cette étude</a></div>
+      </div>
+    </section>
+
+    <section id="projet-pib-investissement">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Étude de cas · 02</div>
+          <h2>PIB et investissement au Bénin</h2>
+          <p>Analyse exploratoire et économétrique de l’évolution du PIB courant et de l’investissement sur la période 1999–2025, à partir de séries macroéconomiques transformées en logarithmes.</p>
+        </div>
+        <div class="case-meta-grid">
+          <div class="case-meta"><strong>Période étudiée</strong><span>1999–2025</span></div>
+          <div class="case-meta"><strong>Variables</strong><span>PIB courant et investissement</span></div>
+          <div class="case-meta"><strong>Approche</strong><span>Logarithmes et tests de stationnarité</span></div>
+        </div>
+        <article class="card case-block">
+          <h3>Question d’analyse</h3>
+          <p>Comment les séries du PIB courant et de l’investissement évoluent-elles sur longue période, et quelles vérifications économétriques doivent être réalisées avant d’estimer une relation entre elles ?</p>
+          <h3>Données et démarche</h3>
+          <ul>
+            <li>Constitution de séries annuelles couvrant 1999 à 2025.</li>
+            <li>Transformation logarithmique des variables pour faciliter l’analyse des évolutions relatives.</li>
+            <li>Examen de la stationnarité à l’aide de tests de Dickey–Fuller augmenté (ADF), notamment sur les premières différences.</li>
+            <li>Préparation de la suite de l’analyse en tenant compte des propriétés statistiques des séries.</li>
+          </ul>
+          <div class="tag-list"><span class="tag">Macroéconomie</span><span class="tag">PIB</span><span class="tag">Investissement</span><span class="tag">Économétrie</span><span class="tag">Tests ADF</span></div>
+        </article>
+        <div class="result-grid">
+          <div class="result-item"><strong>1999–2025</strong><span>Période couverte</span></div>
+          <div class="result-item"><strong>0,0090</strong><span>p-value ADF rapportée, première série différenciée</span></div>
+          <div class="result-item"><strong>0,0071</strong><span>p-value ADF rapportée, deuxième série différenciée</span></div>
+        </div>
+        <article class="card case-block">
+          <h3>Interprétation et limites</h3>
+          <p>Les p-values rapportées pour les tests ADF sur les premières différences sont inférieures à 5 %, ce qui appuie le rejet de l’hypothèse de racine unitaire pour les séries différenciées dans les spécifications testées.</p>
+          <p>Ces vérifications constituent une étape préalable : elles ne démontrent pas à elles seules une relation causale entre investissement et PIB. Une conclusion sur une relation de long terme nécessiterait notamment des tests adaptés de cointégration et une spécification économétrique appropriée.</p>
+          <div class="case-note"><strong>Prochaine étape possible :</strong> compléter les diagnostics, examiner la cointégration si les conditions sont réunies, puis choisir un modèle adapté aux propriétés des séries.</div>
+        </article>
+        <div class="case-actions"><a class="btn btn-primary" href="#projets">← Retour aux projets</a><a class="btn btn-secondary" href="#contact">Me contacter à propos de cette étude</a></div>
+      </div>
+    </section>
+
+    <section id="projet-malnutrition">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Étude de cas · 03</div>
+          <h2>Déterminants de la malnutrition chez les enfants de moins de cinq ans au Bénin</h2>
+          <p>Travail de recherche réalisé dans le cadre de la Licence en Statistique appliquée, à partir des données de l’Enquête démographique et de santé du Bénin 2017–2018.</p>
+        </div>
+        <div class="case-meta-grid">
+          <div class="case-meta"><strong>Population étudiée</strong><span>12 651 enfants vivants de moins de cinq ans</span></div>
+          <div class="case-meta"><strong>Source</strong><span>EDS Bénin 2017–2018</span></div>
+          <div class="case-meta"><strong>Outil principal</strong><span>Stata 17</span></div>
+        </div>
+        <article class="card case-block">
+          <h3>Objectif de la recherche</h3>
+          <p>Décrire les formes de malnutrition chez les enfants de moins de cinq ans et étudier les facteurs qui leur sont statistiquement associés à partir des données de l’EDS.</p>
+          <h3>Méthodes appliquées</h3>
+          <ul>
+            <li>Statistiques descriptives pour caractériser les indicateurs étudiés.</li>
+            <li>Tests du Chi-deux pour examiner les associations bivariées.</li>
+            <li>Régression logistique binaire pour étudier les associations en analyse multivariée.</li>
+            <li>Évaluation du modèle à l’aide du test de Hosmer–Lemeshow et de la courbe ROC.</li>
+          </ul>
+          <div class="tag-list"><span class="tag">EDS 2017–2018</span><span class="tag">Stata 17</span><span class="tag">Biostatistique</span><span class="tag">Régression logistique</span><span class="tag">Santé publique</span></div>
+        </article>
+        <div class="result-grid">
+          <div class="result-item"><strong>31,8 %</strong><span>Retard de croissance</span></div>
+          <div class="result-item"><strong>16,8 %</strong><span>Insuffisance pondérale</span></div>
+          <div class="result-item"><strong>5,2 %</strong><span>Émaciation</span></div>
+        </div>
+        <article class="card case-block">
+          <h3>Apport du travail</h3>
+          <p>Cette recherche montre comment des données d’enquête nationales peuvent servir à décrire un problème de santé publique et à examiner les facteurs associés à l’état nutritionnel des enfants. Elle met en pratique plusieurs étapes d’une analyse statistique, depuis la préparation et l’exploration des données jusqu’à la modélisation et à l’évaluation des résultats.</p>
+          <div class="case-note"><strong>Précaution d’interprétation :</strong> les associations statistiques obtenues à partir de données observationnelles ne doivent pas être interprétées automatiquement comme des relations de cause à effet.</div>
+        </article>
+        <div class="case-actions"><a class="btn btn-primary" href="#projets">← Retour aux projets</a><a class="btn btn-secondary" href="#memoire">Voir la rubrique Mémoire</a></div>
       </div>
     </section>
 
