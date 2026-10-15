@@ -252,7 +252,51 @@
     .case-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
     @media (max-width: 700px) { .case-meta-grid { grid-template-columns: 1fr; } }
 
-  </style>
+  
+/* Illustrations du mémoire */
+.thesis-figures {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+    gap: 24px;
+    margin-top: 28px;
+}
+.thesis-figure {
+    margin: 0;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface, #ffffff);
+    box-shadow: var(--shadow);
+}
+.thesis-figure h3 {
+    margin: 0 0 12px;
+    color: var(--text, #172b4d);
+    font-size: 1.12rem;
+}
+.thesis-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #ffffff;
+}
+.thesis-figure figcaption {
+    margin-top: 12px;
+    color: var(--muted, #526176);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+.thesis-figure .figure-note {
+    margin-top: 8px;
+    font-size: 0.86rem;
+}
+@media (max-width: 600px) {
+    .thesis-figure { padding: 12px; }
+}
+
+</style>
 </head>
 <body>
   <header class="header">
@@ -593,6 +637,32 @@
           <p><strong>Méthodes :</strong> statistiques descriptives, tests du Chi-deux, régression logistique binaire, test de Hosmer-Lemeshow et courbe ROC.</p>
           <div class="tag-list"><span class="tag">Stata 17</span><span class="tag">Santé publique</span><span class="tag">Analyse statistique</span></div>
           <p class="small">Les résultats présentés résument les analyses réalisées dans le cadre du mémoire.</p>
+
+        <div class="thesis-figures" aria-label="Graphiques issus du mémoire">
+          <figure class="thesis-figure">
+            <h3>Prévalence du retard de croissance par département</h3>
+            <img src="prevalence-stunting.png"
+                 alt="Graphique en barres de la prévalence du retard de croissance par département au Bénin"
+                 loading="lazy">
+            <figcaption>
+              Le graphique compare les prévalences départementales du retard de croissance chez les enfants.
+              Dans les valeurs affichées, l'Atacora atteint 36,9 % et le Littoral 21,4 %, soit un écart de 15,5 points de pourcentage.
+            </figcaption>
+            <p class="figure-note">Source : EDS Bénin 2017-2018, à confirmer pour ce graphique.</p>
+          </figure>
+
+          <figure class="thesis-figure">
+            <h3>Courbe ROC du modèle de régression logistique</h3>
+            <img src="courbe-roc.png"
+                 alt="Courbe ROC évaluant le modèle de régression logistique, aire sous la courbe de 0,6412"
+                 loading="lazy">
+            <figcaption>
+              L'aire sous la courbe (AUC) est de 0,6412. Cette valeur indique un pouvoir discriminant limité à modeste :
+              le modèle fait mieux que le hasard, mais sa capacité à distinguer les deux groupes reste perfectible.
+            </figcaption>
+            <p class="figure-note">Interprétation descriptive des performances du modèle.</p>
+          </figure>
+        </div>
         </article>
       </div>
     </section>
