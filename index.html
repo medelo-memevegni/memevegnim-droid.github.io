@@ -88,6 +88,12 @@
     .project-group-heading h3 { margin: 0 0 6px; color: var(--primary, #102a43); font-size: 1.25rem; }
     .project-group-heading p { margin: 0; color: var(--muted); }
     .project-group-heading-completed { margin-top: 38px; }
+    .project-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 24px; }
+    .project-filter { border: 1px solid var(--border); border-radius: 999px; padding: 10px 16px; background: var(--surface); color: var(--text); font-weight: 700; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+    .project-filter:hover, .project-filter:focus-visible { border-color: var(--accent); outline-offset: 3px; }
+    .project-filter.is-active { background: #102b49; border-color: #102b49; color: #fff; }
+    .project-group-hidden { display: none !important; }
+
     .research-box { margin-top: 20px; padding: 20px; border-radius: 12px; background: var(--surface-alt); border: 1px solid var(--border); }
     .research-box p { margin: 5px 0; }
     .result-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin: 20px 0; }
@@ -514,11 +520,17 @@
           <p>Mes travaux sont présentés selon leur état d'avancement : études et outils en cours de développement, puis réalisations déjà menées à terme.</p>
         </div>
 
-        <div class="project-group-heading">
+        <div class="project-filters" role="group" aria-label="Filtrer les projets">
+          <button type="button" class="project-filter is-active" data-project-filter="all" aria-pressed="true">Tous les projets</button>
+          <button type="button" class="project-filter" data-project-filter="ongoing" aria-pressed="false">Projets en cours</button>
+          <button type="button" class="project-filter" data-project-filter="completed" aria-pressed="false">Travaux réalisés</button>
+        </div>
+
+        <div class="project-group-heading project-heading-ongoing">
           <h3>Projets en cours</h3>
           <p>Analyses et outils en développement, avec une attention particulière aux données économiques et à l'aide à la décision.</p>
         </div>
-        <div class="grid-2">
+        <div class="grid-2 project-grid-ongoing">
           <article class="card project-card"><div class="card-icon">↗</div><h3>Prévision de l'inflation au Bénin</h3><p>Analyse de l'Indice harmonisé des prix à la consommation (IHPC) et modélisation ARIMA pour étudier son évolution et produire des prévisions.</p><div class="tag-list"><span class="tag">Séries temporelles</span><span class="tag">ARIMA</span><span class="tag">Python / statistique</span></div><p class="project-status">Statut : analyse en cours de développement.</p><a class="btn btn-secondary project-detail-link" href="#projet-inflation">Découvrir l’étude →</a></article>
           <article class="card project-card"><div class="card-icon">∑</div><h3>Investissement et PIB au Bénin</h3><p>Étude économétrique de la relation entre le PIB courant et l'investissement sur la période 1999–2025, avec préparation des séries et tests préalables à la modélisation.</p><div class="tag-list"><span class="tag">Économétrie</span><span class="tag">Régression</span><span class="tag">Données macroéconomiques</span></div><p class="project-status">Statut : analyse exploratoire et économétrique.</p><a class="btn btn-secondary project-detail-link" href="#projet-pib-investissement">Découvrir l’étude →</a></article>
           <article class="card project-card"><div class="card-icon">▤</div><h3>Analyse multicritère de l'investissement public</h3><p>Conception d'une matrice d'analyse pour comparer des projets d'investissement à partir de critères définis et organiser les informations utiles à la décision.</p><div class="tag-list"><span class="tag">Python</span><span class="tag">Analyse multicritère</span><span class="tag">Aide à la décision</span></div><p class="project-status">Statut : prototype d'analyse.</p><details class="project-more"><summary>Voir les détails</summary><div class="project-more-content"><p><strong>Objectif :</strong> structurer la comparaison de projets publics à partir de critères explicites.</p><p><strong>Démarche :</strong></p><ul><li>Définir les critères et leur importance relative ;</li><li>organiser les informations dans une matrice ;</li><li>normaliser les valeurs et comparer les options ;</li><li>présenter un classement indicatif et ses limites.</li></ul><p><strong>Outil :</strong> Python / Google Colab. Les résultats dépendront des critères et des données effectivement disponibles.</p></div></details></article>
@@ -527,11 +539,11 @@
           <article class="card project-card"><div class="card-icon">◎</div><h3>Système de suivi décisionnel</h3><p>Conception progressive d'un système de suivi regroupant des indicateurs clés pour visualiser l'avancement, repérer les écarts et soutenir la prise de décision.</p><div class="tag-list"><span class="tag">Indicateurs</span><span class="tag">Suivi de performance</span><span class="tag">Reporting</span></div><p class="project-status">Statut : concept et outils en cours d'élaboration.</p><details class="project-more"><summary>Voir les détails</summary><div class="project-more-content"><p><strong>Objectif :</strong> regrouper des indicateurs pour suivre l'avancement d'activités ou de décisions.</p><ul><li>Définir les indicateurs, leurs sources et leur fréquence de mise à jour ;</li><li>comparer les réalisations aux objectifs ;</li><li>signaler les écarts et retards ;</li><li>préparer un tableau de bord synthétique.</li></ul><p><strong>Livrable visé :</strong> un outil de suivi simple, documenté et actualisable.</p></div></details></article>
         </div>
 
-        <div class="project-group-heading project-group-heading-completed">
+        <div class="project-group-heading project-group-heading-completed project-heading-completed">
           <h3>Travaux réalisés</h3>
           <p>Travaux académiques et outils déjà réalisés, présentés avec leur portée réelle.</p>
         </div>
-        <div class="grid-2">
+        <div class="grid-2 project-grid-completed">
           <article class="card project-card"><div class="card-icon">＋</div><h3>Malnutrition chez les enfants de moins de cinq ans</h3><p>Étude fondée sur l'EDS Bénin 2017–2018 pour analyser les facteurs associés à la malnutrition infantile à l'aide de statistiques descriptives, de tests du Chi-deux et d'une régression logistique.</p><div class="tag-list"><span class="tag">Stata 17</span><span class="tag">EDS 2017–2018</span><span class="tag">Régression logistique</span></div><p class="project-status">Statut : mémoire de Licence réalisé.</p><a class="btn btn-secondary project-detail-link" href="#projet-malnutrition">Découvrir l’étude →</a></article>
           <article class="card project-card"><div class="card-icon">▣</div><h3>Outil d'inventaire pour une boutique</h3><p>Création d'un outil de suivi d'inventaire pour la boutique Aiwibi Aiwina, avec une organisation des données destinée à faciliter le contrôle des articles.</p><div class="tag-list"><span class="tag">Gestion de stock</span><span class="tag">Excel / données</span><span class="tag">Suivi</span></div><p class="project-status">Statut : outil créé.</p><details class="project-more"><summary>Voir les détails</summary><div class="project-more-content"><p><strong>Objectif :</strong> faciliter l'organisation et le contrôle des articles d'une boutique.</p><ul><li>Centraliser les informations sur les articles ;</li><li>organiser le suivi des quantités ;</li><li>faciliter la consultation et la mise à jour de l'inventaire.</li></ul><p><strong>Compétences mobilisées :</strong> structuration des données, logique de suivi et organisation d'un outil pratique.</p></div></details></article>
         </div>
@@ -820,6 +832,29 @@
       window.addEventListener('popstate', function () {
         const id = window.location.hash.slice(1) || 'accueil';
         openPage(id, { updateHistory: false });
+      });
+
+
+      // Filtre simple des projets par état d’avancement.
+      const projectFilterButtons = document.querySelectorAll('[data-project-filter]');
+      const projectGroups = {
+        ongoing: [document.querySelector('.project-heading-ongoing'), document.querySelector('.project-grid-ongoing')],
+        completed: [document.querySelector('.project-heading-completed'), document.querySelector('.project-grid-completed')]
+      };
+      projectFilterButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          const selected = button.dataset.projectFilter;
+          projectFilterButtons.forEach(function (item) {
+            const active = item === button;
+            item.classList.toggle('is-active', active);
+            item.setAttribute('aria-pressed', String(active));
+          });
+          Object.keys(projectGroups).forEach(function (groupName) {
+            projectGroups[groupName].forEach(function (element) {
+              if (element) element.classList.toggle('project-group-hidden', selected !== 'all' && selected !== groupName);
+            });
+          });
+        });
       });
 
       document.getElementById('year').textContent = new Date().getFullYear();
