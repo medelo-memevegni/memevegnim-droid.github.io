@@ -322,6 +322,11 @@
 
     .thesis-actions { display:flex; flex-wrap:wrap; gap:12px; margin:18px 0 24px; }
     .thesis-actions .btn { text-decoration:none; }
+    .back-home-float { position: fixed; right: 22px; bottom: 22px; z-index: 120; display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 999px; padding: 12px 17px; background: var(--primary); color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.18); cursor: pointer; font-weight: 700; transition: transform .2s ease, opacity .2s ease; }
+    .back-home-float:hover { transform: translateY(-3px); }
+    .back-home-float:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    @media (max-width: 520px) { .back-home-float { right: 12px; bottom: 12px; padding: 11px 14px; font-size: .9rem; } }
+    @media (prefers-reduced-motion: reduce) { .back-home-float { transition: none; } }
   </style>
 </head>
 <body>
@@ -765,6 +770,8 @@
   <footer><div class="container footer-content"><span>© <span id="year"></span> Medelo Memevegni</span><span>Statistique appliquée · Analyse de données</span></div></footer>
   <button class="back-top" id="backTop" type="button" aria-label="Retour à l’accueil" title="Retour à l’accueil">⌂</button>
 
+  <button class="back-home-float" id="backHomeFloat" type="button" aria-label="Revenir à la page d’accueil">↑ Accueil</button>
+
   <script>
     (function () {
       const root = document.documentElement;
@@ -934,6 +941,13 @@
       }
 
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      const backHomeFloat = document.getElementById('backHomeFloat');
+      if (backHomeFloat) {
+        backHomeFloat.addEventListener('click', function () {
+          openPage('accueil');
+        });
+      }
 
       const initialPage = window.location.hash.slice(1);
       openPage(pageIds.has(initialPage) ? initialPage : 'accueil', {
