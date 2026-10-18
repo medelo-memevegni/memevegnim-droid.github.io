@@ -753,7 +753,10 @@
           <div class="buttons">
             <a class="btn btn-primary" href="https://github.com/memevegnim-droid" target="_blank" rel="noopener noreferrer">Voir mes projets GitHub</a>
             <a class="btn btn-secondary" href="CV_Medelo_Memevegni.pdf" download="CV_Medelo_Memevegni.pdf">Télécharger mon CV</a>
+            <button class="btn btn-secondary" id="sharePortfolio" type="button">Partager mon portfolio ↗</button>
+            <button class="btn btn-secondary" id="copyWhatsApp" type="button">Copier mon numéro WhatsApp</button>
           </div>
+          <p id="contact-action-status" class="project-search-status" role="status" aria-live="polite"></p>
         </div>
       </div>
     </section>
@@ -891,6 +894,44 @@
       });
       if (projectSearch) projectSearch.addEventListener('input', updateProjectResults);
       updateProjectResults();
+
+      // Partager le portfolio ou copier le numéro WhatsApp en un clic.
+      const sharePortfolioButton = document.getElementById('sharePortfolio');
+      const copyWhatsAppButton = document.getElementById('copyWhatsApp');
+      const contactActionStatus = document.getElementById('contact-action-status');
+      if (sharePortfolioButton) {
+        sharePortfolioButton.addEventListener('click', async function () {
+          const shareData = { title: document.title || 'Portfolio professionnel', text: 'Découvrez mon portfolio professionnel en statistique appliquée.', url: window.location.href };
+          try {
+            if (navigator.share) {
+              await navigator.share(shareData);
+              if (contactActionStatus) contactActionStatus.textContent = 'Merci d’avoir partagé le portfolio.';
+            } else if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(window.location.href);
+              if (contactActionStatus) contactActionStatus.textContent = 'Lien du portfolio copié. Vous pouvez maintenant le partager.';
+            } else {
+              window.prompt('Copiez le lien de votre portfolio :', window.location.href);
+            }
+          } catch (error) {
+            if (error && error.name !== 'AbortError' && contactActionStatus) contactActionStatus.textContent = 'Le partage n’a pas abouti. Vous pouvez copier le lien depuis la barre d’adresse.';
+          }
+        });
+      }
+      if (copyWhatsAppButton) {
+        copyWhatsAppButton.addEventListener('click', async function () {
+          const number = '+229 01 64 79 94 20';
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(number);
+              if (contactActionStatus) contactActionStatus.textContent = 'Numéro WhatsApp copié : ' + number;
+            } else {
+              window.prompt('Copiez votre numéro WhatsApp :', number);
+            }
+          } catch (error) {
+            if (contactActionStatus) contactActionStatus.textContent = 'Impossible de copier automatiquement. Utilisez le numéro affiché : ' + number;
+          }
+        });
+      }
 
       document.getElementById('year').textContent = new Date().getFullYear();
 
