@@ -93,6 +93,12 @@
     .project-filter:hover, .project-filter:focus-visible { border-color: var(--accent); outline-offset: 3px; }
     .project-filter.is-active { background: #102b49; border-color: #102b49; color: #fff; }
     .project-group-hidden { display: none !important; }
+    .project-search-wrap { margin: 0 0 16px; max-width: 620px; }
+    .project-search-label { display: block; font-weight: 750; color: var(--text); margin-bottom: 8px; }
+    .project-search { width: 100%; padding: 13px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--text); font: inherit; box-sizing: border-box; }
+    .project-search:focus { outline: 3px solid rgba(77,157,224,.25); border-color: var(--accent); }
+    .project-search-status { color: var(--muted); font-size: .9rem; margin: 0 0 20px; }
+    .project-card.search-hidden { display: none !important; }
 
     .research-box { margin-top: 20px; padding: 20px; border-radius: 12px; background: var(--surface-alt); border: 1px solid var(--border); }
     .research-box p { margin: 5px 0; }
@@ -520,6 +526,11 @@
           <p>Mes travaux sont présentés selon leur état d'avancement : études et outils en cours de développement, puis réalisations déjà menées à terme.</p>
         </div>
 
+        <div class="project-search-wrap">
+          <label class="project-search-label" for="project-search">Rechercher un projet par mot-clé</label>
+          <input class="project-search" id="project-search" type="search" placeholder="Ex. inflation, Stata, Python, PIB, santé…" autocomplete="off">
+        </div>
+        <p class="project-search-status" id="project-search-status" aria-live="polite">8 projets affichés.</p>
         <div class="project-filters" role="group" aria-label="Filtrer les projets">
           <button type="button" class="project-filter is-active" data-project-filter="all" aria-pressed="true">Tous les projets</button>
           <button type="button" class="project-filter" data-project-filter="ongoing" aria-pressed="false">Projets en cours</button>
@@ -835,27 +846,51 @@
       });
 
 
-      // Filtre simple des projets par état d’avancement.
+      // Recherche par mot-clé et filtres combinables pour les projets.
       const projectFilterButtons = document.querySelectorAll('[data-project-filter]');
+      const projectSearch = document.getElementById('project-search');
+      const projectSearchStatus = document.getElementById('project-search-status');
       const projectGroups = {
-        ongoing: [document.querySelector('.project-heading-ongoing'), document.querySelector('.project-grid-ongoing')],
-        completed: [document.querySelector('.project-heading-completed'), document.querySelector('.project-grid-completed')]
+        ongoing: { heading: document.querySelector('.project-heading-ongoing'), grid: document.querySelector('.project-grid-ongoing') },
+        completed: { heading: document.querySelector('.project-heading-completed'), grid: document.querySelector('.project-grid-completed') }
       };
+      let selectedProjectStatus = 'all';
+      function updateProjectResults() {
+        const query = (projectSearch ? projectSearch.value : '').trim().toLocaleLowerCase('fr');
+        let visibleCount = 0;
+        Object.keys(projectGroups).forEach(function (groupName) {
+          const group = projectGroups[groupName];
+          const statusAllowed = selectedProjectStatus === 'all' || selectedProjectStatus === groupName;
+          let groupCount = 0;
+          if (group.grid) {
+            group.grid.querySelectorAll('.project-card').forEach(function (card) {
+              const matches = card.textContent.toLocaleLowerCase('fr').includes(query);
+              const visible = statusAllowed && matches;
+              card.classList.toggle('search-hidden', !visible);
+              if (visible) { visibleCount++; groupCount++; }
+            });
+          }
+          if (group.heading) group.heading.classList.toggle('project-group-hidden', !statusAllowed || groupCount === 0);
+          if (group.grid) group.grid.classList.toggle('project-group-hidden', !statusAllowed || groupCount === 0);
+        });
+        if (projectSearchStatus) {
+          projectSearchStatus.textContent = visibleCount + (visibleCount > 1 ? ' projets affichés.' : ' projet affiché.');
+          if (visibleCount === 0) projectSearchStatus.textContent = 'Aucun projet ne correspond à cette recherche. Essayez un autre mot-clé.';
+        }
+      }
       projectFilterButtons.forEach(function (button) {
         button.addEventListener('click', function () {
-          const selected = button.dataset.projectFilter;
+          selectedProjectStatus = button.dataset.projectFilter;
           projectFilterButtons.forEach(function (item) {
             const active = item === button;
             item.classList.toggle('is-active', active);
             item.setAttribute('aria-pressed', String(active));
           });
-          Object.keys(projectGroups).forEach(function (groupName) {
-            projectGroups[groupName].forEach(function (element) {
-              if (element) element.classList.toggle('project-group-hidden', selected !== 'all' && selected !== groupName);
-            });
-          });
+          updateProjectResults();
         });
       });
+      if (projectSearch) projectSearch.addEventListener('input', updateProjectResults);
+      updateProjectResults();
 
       document.getElementById('year').textContent = new Date().getFullYear();
 
