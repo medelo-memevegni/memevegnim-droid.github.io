@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/</loc>
-  </url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/index.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/apropos.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/formation.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/competences.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/methode.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/apercu.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/experiences.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/projets.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/projet-inflation.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/projet-pib-investissement.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/projet-malnutrition.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/memoire.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/recherche.html</loc></url>
+  <url><loc>https://medelo-memevegni.github.io/memevegnim-droid.github.io/contact.html</loc></url>
 </urlset>

@@ -1,0 +1,12 @@
+PORTFOLIO MULTIPAGE — INSTALLATION GITHUB PAGES
+
+1. Décompressez ce dossier.
+2. Dans votre dépôt GitHub, téléversez TOUS les fichiers .html à la racine (au même niveau que CV_Medelo_Memevegni.pdf et les photos).
+3. Remplacez l’ancien index.html par celui du dossier.
+4. Remplacez sitemap.xml par celui du dossier.
+5. Ne supprimez pas google21534c0f740c92ec.html, les images, le CV ou le mémoire PDF.
+6. Faites Commit changes.
+
+Les fichiers HTML sont : index.html, apropos.html, formation.html, competences.html, methode.html, apercu.html, experiences.html, projets.html, projet-inflation.html, projet-pib-investissement.html, projet-malnutrition.html, memoire.html, recherche.html, contact.html.
+Les liens entre les pages sont déjà configurés. Les photos et documents restent à la racine du dépôt.
+Après publication, vérifiez chaque page, puis soumettez le sitemap.xml dans Google Search Console.
